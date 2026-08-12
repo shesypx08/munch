@@ -1,0 +1,37 @@
+/* ============================= */
+/* Index Product Preview Cards   */
+/* ============================= */
+
+.index-product-card .restaurant-body {
+    min-height: 13rem;
+}
+
+.index-product-card .menu {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    min-height: 3.2rem;
+}
+
+.index-product-actions {
+    display: flex;
+    gap: .6rem;
+    flex-wrap: wrap;
+    margin-top: 1rem;
+}
+
+.index-product-actions .btn {
+    padding: .75rem 1rem;
+    font-size: .85rem;
+    text-decoration: none;
+}
+
+.index-view-menu-btn {
+    display: inline-flex;
+    align-items: center;
+}
+
+#index-product-preview .menu-empty-message {
+    grid-column: 1 / -1;
+}

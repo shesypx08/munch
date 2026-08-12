@@ -1,0 +1,133 @@
+/* ============================= */
+/* Selective Cart UI Fix         */
+/* ============================= */
+
+.order-cart-first-layout {
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+}
+
+.cart-main-panel {
+    width: 100%;
+    position: static;
+}
+
+.cart-panel-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+.cart-panel-header h3 {
+    margin-top: 1rem;
+}
+
+.cart-select-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: .7rem;
+}
+
+.mini-cart-btn {
+    padding: .75rem 1rem;
+    font-size: .85rem;
+}
+
+.selectable-cart-line {
+    display: grid;
+    grid-template-columns: 110px 1fr auto auto;
+    align-items: center;
+    gap: 1rem;
+}
+
+.cart-select-check {
+    display: flex;
+    align-items: center;
+    gap: .45rem;
+    font-weight: 700;
+    color: var(--secondary-text-color);
+    cursor: pointer;
+}
+
+.cart-select-check input {
+    accent-color: var(--secondary-color);
+    transform: scale(1.15);
+}
+
+.cart-item-main-info small {
+    display: block;
+    opacity: .75;
+    margin-top: .25rem;
+}
+
+.cart-grand-total {
+    padding-top: 1rem;
+    border-top: .1rem solid var(--border-color);
+    font-size: 1.1rem;
+}
+
+.menu-suggestion-section {
+    width: 100%;
+}
+
+.suggestion-title {
+    margin-bottom: 2rem;
+}
+
+.suggestion-title .section-title {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+#order-menu-grid {
+    width: 100%;
+}
+
+.suggestions-empty-message {
+    grid-column: 1 / -1;
+}
+
+@media (max-width: 850px) {
+    .cart-panel-header {
+        flex-direction: column;
+    }
+
+    .selectable-cart-line {
+        grid-template-columns: 1fr;
+        align-items: flex-start;
+    }
+
+    .cart-qty-controls {
+        justify-content: flex-start;
+    }
+}
+
+
+/* ============================= */
+/* Delivery Address + RM6 Charge */
+/* ============================= */
+
+.delivery-address-box {
+    display: none;
+    gap: .45rem;
+    padding: 1rem;
+    border-radius: .7rem;
+    background: var(--accent-color);
+    border: .1rem dashed var(--secondary-color);
+}
+
+.delivery-address-box textarea {
+    min-height: 5.5rem;
+}
+
+.delivery-address-box small {
+    color: var(--secondary-text-color);
+    font-weight: 700;
+}
+
+.delivery-fee-row {
+    display: none;
+}

@@ -1,0 +1,319 @@
+/* ============================= */
+/* CUSTOMER LOGIN / SIGNUP TRANSITION ONLY */
+/* Keeps existing Munch design, PHP actions, field names and backend logic. */
+/* Sliding logic based on active class: form panels move + overlay moves. */
+/* ============================= */
+
+.customer-transition-page {
+    align-items: center;
+}
+
+.customer-auth-slider {
+    position: relative;
+    width: min(54rem, 100%);
+    min-height: 42rem;
+    background: var(--primary-color);
+    border-radius: 1.2rem;
+    overflow: hidden;
+    box-shadow: 0 1rem 2rem var(--box-shadow-color);
+    border: .1rem solid var(--border-color);
+    z-index: 1;
+}
+
+.customer-auth-form-panel {
+    position: absolute;
+    top: 0;
+    width: 50%;
+    height: 100%;
+    padding: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform .65s ease-in-out, opacity .55s ease-in-out, z-index .65s ease-in-out;
+}
+
+.customer-login-panel {
+    left: 0;
+    z-index: 2;
+    opacity: 1;
+}
+
+.customer-signup-panel {
+    left: 0;
+    z-index: 1;
+    opacity: 0;
+}
+
+.customer-auth-slider.active .customer-login-panel {
+    transform: translateX(100%);
+    opacity: 0;
+    z-index: 1;
+}
+
+.customer-auth-slider.active .customer-signup-panel {
+    transform: translateX(100%);
+    opacity: 1;
+    z-index: 2;
+}
+
+.customer-auth-inner-card {
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    min-height: 0;
+    box-shadow: none;
+    border: none;
+    padding: 1.5rem;
+    background: transparent;
+}
+
+.customer-auth-inner-card .auth-icon {
+    margin-bottom: 1rem;
+}
+
+.customer-auth-inner-card h2 {
+    margin-bottom: .4rem;
+}
+
+.customer-auth-inner-card .auth-card-line {
+    margin-bottom: 1.2rem;
+}
+
+.customer-auth-inner-card .auth-form {
+    gap: .85rem;
+}
+
+.customer-auth-inner-card .form-group {
+    margin-bottom: .8rem;
+}
+
+.customer-auth-inner-card .input-wrapper input {
+    padding-top: .85rem;
+    padding-bottom: .85rem;
+}
+
+.customer-auth-inner-card .auth-submit-btn {
+    margin-top: .5rem;
+    width: 100%;
+}
+
+.customer-auth-inner-card.signup-card .form-group {
+    margin-bottom: .65rem;
+}
+
+.customer-auth-inner-card.signup-card .input-wrapper input {
+    padding-top: .75rem;
+    padding-bottom: .75rem;
+}
+
+.customer-auth-inner-card.signup-card .terms-row {
+    margin-top: .2rem;
+    margin-bottom: .4rem;
+}
+
+/* Overlay movement */
+
+.customer-overlay-container {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 50%;
+    height: 100%;
+    overflow: hidden;
+    transition: transform .65s ease-in-out;
+    z-index: 10;
+}
+
+.customer-overlay {
+    position: relative;
+    left: -100%;
+    width: 200%;
+    height: 100%;
+    display: flex;
+    background: linear-gradient(135deg, var(--secondary-color), #a5cece);
+    transition: transform .65s ease-in-out;
+}
+
+.customer-auth-slider.active .customer-overlay-container {
+    transform: translateX(-100%);
+}
+
+.customer-auth-slider.active .customer-overlay {
+    transform: translateX(50%);
+}
+
+.customer-overlay-panel {
+    width: 50%;
+    min-height: 100%;
+    padding: 3rem 2rem;
+    color: var(--light-text-color);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    text-align: center;
+}
+
+.customer-overlay-panel h2 {
+    font-size: 2.3rem;
+    line-height: 2.8rem;
+    font-weight: 700;
+}
+
+.customer-overlay-panel p {
+    max-width: 18rem;
+    line-height: 1.7rem;
+    opacity: .9;
+}
+
+.customer-toggle-btn {
+    margin-top: .6rem;
+    padding: .8rem 1.4rem;
+    border: .12rem solid var(--light-text-color);
+    background: transparent;
+    color: var(--light-text-color);
+    border-radius: .5rem;
+    cursor: pointer;
+    font-weight: 700;
+    font-family: inherit;
+    transition: .3s;
+}
+
+.customer-toggle-btn:hover {
+    background: var(--light-text-color);
+    color: var(--secondary-text-color);
+}
+
+.customer-auth-slider .form-extra-row,
+.customer-auth-slider .check-row {
+    font-size: .88rem;
+}
+
+/* When customer-signup.html is opened, show register side immediately */
+body.show-signup-first .customer-auth-slider .customer-login-panel {
+    transform: translateX(100%);
+    opacity: 0;
+    z-index: 1;
+}
+
+body.show-signup-first .customer-auth-slider .customer-signup-panel {
+    transform: translateX(100%);
+    opacity: 1;
+    z-index: 2;
+}
+
+body.show-signup-first .customer-auth-slider .customer-overlay-container {
+    transform: translateX(-100%);
+}
+
+body.show-signup-first .customer-auth-slider .customer-overlay {
+    transform: translateX(50%);
+}
+
+/* Responsive: keep same design, but disable heavy split animation on small screens */
+@media (max-width: 1100px) {
+    .customer-transition-page {
+        flex-direction: column;
+        padding-top: 8rem;
+    }
+
+    .customer-transition-copy {
+        width: 100%;
+        text-align: center;
+    }
+
+    .customer-transition-copy .auth-benefit-container {
+        max-width: 42rem;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .customer-auth-slider {
+        width: min(100%, 46rem);
+    }
+}
+
+@media (max-width: 760px) {
+    .customer-auth-slider {
+        min-height: auto;
+        display: grid;
+        gap: 1rem;
+        overflow: visible;
+        background: transparent;
+        box-shadow: none;
+        border: none;
+    }
+
+    .customer-auth-form-panel {
+        position: relative;
+        width: 100%;
+        height: auto;
+        left: 0;
+        padding: 0;
+        opacity: 1;
+        transform: none !important;
+        z-index: 1 !important;
+        display: none;
+    }
+
+    .customer-login-panel {
+        display: flex;
+    }
+
+    .customer-auth-slider.active .customer-login-panel,
+    body.show-signup-first .customer-auth-slider .customer-login-panel {
+        display: none;
+        opacity: 0;
+    }
+
+    .customer-auth-slider.active .customer-signup-panel,
+    body.show-signup-first .customer-auth-slider .customer-signup-panel {
+        display: flex;
+        opacity: 1;
+    }
+
+    .customer-auth-inner-card {
+        background: var(--primary-color);
+        border: .1rem solid var(--border-color);
+        box-shadow: 0 .5rem 1rem var(--box-shadow-color);
+        border-radius: .8rem;
+        padding: 2rem;
+    }
+
+    .customer-overlay-container {
+        position: relative;
+        left: 0;
+        width: 100%;
+        height: auto;
+        transform: none !important;
+        border-radius: .8rem;
+    }
+
+    .customer-overlay {
+        left: 0;
+        width: 100%;
+        transform: none !important;
+        border-radius: .8rem;
+    }
+
+    .customer-overlay-panel {
+        width: 100%;
+        padding: 2rem;
+        min-height: auto;
+    }
+
+    .customer-overlay-left {
+        display: none;
+    }
+
+    .customer-auth-slider.active .customer-overlay-left,
+    body.show-signup-first .customer-auth-slider .customer-overlay-left {
+        display: flex;
+    }
+
+    .customer-auth-slider.active .customer-overlay-right,
+    body.show-signup-first .customer-auth-slider .customer-overlay-right {
+        display: none;
+    }
+}

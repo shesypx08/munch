@@ -1,0 +1,158 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(135deg, #c8eaf1, #eaf2f5);
+}
+
+/* MAIN CONTAINER */
+.container {
+    position: relative;
+    width: 800px;
+    height: 500px;
+    background: #fff;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.2);
+}
+
+/* FORM BOX */
+.form-box {
+    position: absolute;
+    top: 0;
+    width: 50%;
+    height: 100%;
+    padding: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: 0.6s ease-in-out;
+}
+
+.form-box form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.form-box h1 {
+    text-align: center;
+    color: #007676;
+}
+
+/* INPUTS */
+.form-box input {
+    padding: 12px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    outline: none;
+}
+
+/* BUTTON */
+.form-box button {
+    padding: 12px;
+    border: none;
+    border-radius: 8px;
+    background: #007676;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.form-box button:hover {
+    background: #26afaf;
+}
+
+/* POSITIONING */
+.login {
+    left: 0;
+    z-index: 2;
+}
+
+.register {
+    left: 0;
+    opacity: 0;
+    z-index: 1;
+}
+
+/* ACTIVE STATE (SLIDE EFFECT) */
+.container.active .login {
+    transform: translateX(100%);
+    opacity: 0;
+}
+
+.container.active .register {
+    transform: translateX(100%);
+    opacity: 1;
+    z-index: 2;
+}
+
+/* OVERLAY */
+.overlay-container {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 50%;
+    height: 100%;
+    overflow: hidden;
+    transition: 0.6s ease-in-out;
+    z-index: 10;
+}
+
+.overlay {
+    position: relative;
+    width: 200%;
+    height: 100%;
+    left: -100%;
+    background: linear-gradient(135deg, #248686, #a5cece);
+    display: flex;
+    transition: 0.6s ease-in-out;
+}
+
+/* MOVE OVERLAY */
+.container.active .overlay-container {
+    transform: translateX(-100%);
+}
+
+.container.active .overlay {
+    transform: translateX(50%);
+}
+
+/* PANELS */
+.overlay-panel {
+    width: 50%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    text-align: center;
+    padding: 40px;
+}
+
+.overlay-panel button {
+    margin-top: 15px;
+    padding: 10px 20px;
+    border: 2px solid white;
+    background: transparent;
+    color: white;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.overlay-panel button:hover {
+    background: white;
+    color: #2193b0;
+}

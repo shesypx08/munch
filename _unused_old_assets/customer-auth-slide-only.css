@@ -1,0 +1,152 @@
+/* ============================= */
+/* CUSTOMER AUTH SLIDE ONLY */
+/* Keeps your original Munch auth-card design. */
+/* Only adds side-to-side movement between login and sign up. */
+/* ============================= */
+
+.customer-auth-slide-page {
+    overflow: hidden;
+}
+
+/* This shell replaces the single auth-card size, but the cards inside still use auth-card design */
+.customer-auth-slide-shell {
+    width: 45%;
+    min-width: 390px;
+    position: relative;
+    z-index: 1;
+    overflow: hidden;
+    border-radius: .8rem;
+}
+
+/* Two original auth-card panels placed side by side */
+.customer-auth-slide-track {
+    width: 200%;
+    display: flex;
+    align-items: stretch;
+    transition: transform .65s ease-in-out;
+    will-change: transform;
+}
+
+/* When active, login slides left and register slides in */
+.customer-auth-slide-shell.active .customer-auth-slide-track,
+body.customer-register-first .customer-auth-slide-shell .customer-auth-slide-track {
+    transform: translateX(-50%);
+}
+
+.customer-slide-card {
+    width: 50%;
+    min-width: 0;
+    flex: 0 0 50%;
+    margin: 0;
+    opacity: 1;
+    transform: none;
+    transition: opacity .35s ease-in-out;
+}
+
+/* Override original .auth-card width only inside the slider */
+.customer-auth-slide-shell .auth-card,
+.customer-auth-slide-shell .signup-card {
+    width: 50%;
+    min-width: 0;
+}
+
+/* Keep the original card look but make height stable enough for the longer signup form */
+.customer-auth-slide-shell .auth-card {
+    min-height: 37rem;
+}
+
+.customer-auth-slide-shell .customer-register-card {
+    padding-top: 2.1rem;
+    padding-bottom: 2.1rem;
+}
+
+.customer-auth-slide-shell .customer-register-card .auth-form {
+    gap: .85rem;
+}
+
+.customer-auth-slide-shell .customer-register-card .form-group {
+    margin-bottom: 0;
+}
+
+.customer-auth-slide-shell .customer-register-card .input-wrapper {
+    min-height: 3.05rem;
+}
+
+.customer-auth-slide-shell .customer-register-card .auth-icon {
+    width: 4.4rem;
+    height: 4.4rem;
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+}
+
+.customer-auth-slide-shell .customer-register-card h2 {
+    margin-bottom: .45rem;
+}
+
+.customer-auth-slide-shell .customer-register-card .auth-card-line {
+    margin-bottom: 1.2rem;
+}
+
+.customer-auth-slide-shell .customer-register-card .terms-row {
+    margin-top: .2rem;
+}
+
+/* Smooth text update on the left side */
+.customer-auth-page .auth-content {
+    transition: opacity .25s ease-in-out, transform .25s ease-in-out;
+}
+
+.customer-auth-page .auth-content.switching {
+    opacity: .55;
+    transform: translateX(-.5rem);
+}
+
+/* Make switch links feel like buttons but still keep the Munch auth text */
+.auth-switch-text a {
+    cursor: pointer;
+}
+
+/* Responsive: stack normally, then keep the same side-to-side slide within the card */
+@media (max-width: 998px) {
+    .customer-auth-slide-shell {
+        width: 100%;
+        min-width: 0;
+    }
+
+    .customer-auth-slide-shell .auth-card {
+        min-height: auto;
+    }
+}
+
+@media (max-width: 520px) {
+    .customer-auth-slide-shell {
+        overflow: visible;
+    }
+
+    .customer-auth-slide-track {
+        width: 100%;
+        display: block;
+        transform: none !important;
+    }
+
+    .customer-slide-card,
+    .customer-auth-slide-shell .auth-card,
+    .customer-auth-slide-shell .signup-card {
+        width: 100%;
+        flex: none;
+    }
+
+    .customer-register-card {
+        display: none;
+    }
+
+    .customer-auth-slide-shell.active .customer-login-card,
+    body.customer-register-first .customer-auth-slide-shell .customer-login-card {
+        display: none;
+    }
+
+    .customer-auth-slide-shell.active .customer-register-card,
+    body.customer-register-first .customer-auth-slide-shell .customer-register-card {
+        display: block;
+    }
+}
