@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Role | Munch</title>
+
+    <!-- Google Fonts "Lato" -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@100;300;400;700;900&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- AOS -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="auth.css">
+	<link rel="stylesheet" href="search-extra.css">
+    <link rel="stylesheet" href="munch-clean-ui.css">
+</head>
+
+<body>
+
+    <header>
+        <nav class="navbar">
+            <a href="index.html">
+                <img src="img/footer-logo.png" class="logo" alt="Munch Logo">
+            </a>
+
+            <ul class="links-container">
+                <li class="link-items"><a href="index.html" class="links">Home</a></li>
+                <li class="link-items"><a href="login.html" class="links">login</a></li>
+                <li class="link-items"><a href="menu.php" class="links">menu</a></li>
+                <li class="link-items"><a class="links protected-link" data-protected="true" data-target="customerOrder.html" href="customerOrder.html">order</a></li>
+                <li class="link-items"><a href="Reservation.html" class="links require-login-reservation">Reservation</a></li>
+            </ul>
+
+            <div class="nav-extras">
+                <div class="search">
+                    <input type="text" class="search-box" placeholder="Search Menu.....">
+                    <button class="search-btn" type="button"><i class="fa-solid fa-magnifying-glass"></i></button>
+                </div>
+
+                <a href="order.html" class="cart protected-link" data-protected="true" data-target="order.html">
+                    <i class="fa-solid fa-cart-shopping"></i>
+                </a>
+
+                <div class="nav-toggler">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main id="auth-main-section" class="customer-auth-page">
+        <div class="auth-content" data-aos="fade-right">
+            <span class="section-highlight">Login Access</span>
+            <h1 class="auth-heading">Continue as</h1>
+            <p class="auth-line">
+                Choose whether you want to log in as a customer or staff member.
+            </p>
+
+            <div class="auth-benefit-container">
+                <div class="auth-benefit-card">
+                    <i class="fa-solid fa-user"></i>
+                    <h3>Customer</h3>
+                    <p>Order food, make reservations, and manage your profile.</p>
+                </div>
+
+                <div class="auth-benefit-card">
+                    <i class="fa-solid fa-user-tie"></i>
+                    <h3>Staff</h3>
+                    <p>Manage orders, kitchen updates, payments, and restaurant operations.</p>
+                </div>
+            </div>
+        </div>
+
+        <section class="auth-card" data-aos="zoom-in">
+            <div class="auth-icon">
+                <i class="fa-solid fa-right-to-bracket"></i>
+            </div>
+
+            <h2>Select Login Type</h2>
+            <p class="auth-card-line">Please choose your role before continuing.</p>
+
+            <div class="auth-form">
+                <a href="customer-login.html" class="btn auth-submit-btn">
+                    <i class="fa-solid fa-user"></i> Customer Login
+                </a>
+
+                <br><br>
+
+                <a href="staff-login.html" class="btn transparent auth-submit-btn">
+                    <i class="fa-solid fa-user-tie"></i> Staff Login
+                </a>
+            </div>
+
+            <p class="auth-switch-text">
+                New customer? <a href="customer-signup.html">Create an account</a>
+            </p>
+        </section>
+    </main>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="auth.js"></script>
+    <script src="nav-order-fix.js"></script>
+
+    <script src="search.js"></script>
+</body>
+
+</html>

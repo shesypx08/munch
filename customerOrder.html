@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Customer Orders | Munch</title>
+
+    <!-- Google Fonts "Lato" -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@100;300;400;700;900&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome Link -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- AOS -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <!-- local CSS files -->
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="auth.css">
+	<link rel="stylesheet" href="search-extra.css">
+    <link rel="stylesheet" href="customerOrder.css?v=order-preview-status-1">
+    <link rel="stylesheet" href="munch-clean-ui.css">
+
+    <style>
+        .order-actions-mini { display:flex; align-items:center; justify-content:center; }
+        .mini-receipt-link { padding:.65rem 1rem; border-radius:999px; background:#0f766e; color:#fff; font-weight:800; text-decoration:none; white-space:nowrap; }
+    </style>
+</head>
+
+<body data-page-requires-role="customer">
+
+    <header>
+        <nav class="navbar">
+            <a href="index.html"><img src="img/footer-logo.png" class="logo" alt="Munch Logo"></a>
+
+            <ul class="links-container">
+                <li class="link-items"><a href="index.html" class="links">Home</a></li>
+                <li class="link-items"><a href="profile.html" class="links protected-link" data-protected="true" data-target="profile.html">profile</a></li>
+                <li class="link-items"><a href="menu.php" class="links">menu</a></li>
+                <li class="link-items"><a class="links protected-link" data-protected="true" data-target="customerOrder.html" href="customerOrder.html">order</a></li>
+                <li class="link-items"><a href="Reservation.html" class="links require-login-reservation">Reservation</a></li>
+            </ul>
+
+            <div class="nav-extras">
+                <div class="search">
+                    <input type="text" class="search-box" placeholder="Search Order.....">
+                    <button class="search-btn" type="button"><i class="fa-solid fa-magnifying-glass"></i></button>
+                </div>
+
+                <a href="order.html" class="cart protected-link" data-protected="true" data-target="order.html">
+                    <i class="fa-solid fa-bag-shopping"></i>
+                </a>
+
+                <div class="nav-toggler">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </nav>
+
+        <main id="order-hero-section">
+            <div class="order-hero-content" data-aos="fade-right">
+                <span class="section-highlight">Customer Orders</span>
+                <h1 class="order-hero-heading">Track your Munch order</h1>
+                <p class="order-hero-line">
+                    View your dine-in, pickup, and delivery orders in one place while keeping the same Munch design flow.
+                </p>
+            </div>
+
+            <div class="order-hero-card" data-aos="zoom-in">
+                <i class="fa-solid fa-receipt"></i>
+                <h2>Order Status</h2>
+                <p>Check preparation status, order type, quantity, and total payment summary easily.</p>
+            </div>
+        </main>
+    </header>
+
+    <section id="customer-order-history-section">
+
+        <div class="reservation-title">
+            <span class="section-highlight">Order Overview</span>
+            <h1 class="section-title">Your Order History</h1>
+            <p class="section-info">
+                Use the sidebar to filter your orders by dine-in, pickup, or delivery.
+            </p>
+        </div>
+
+        <div class="customer-order-wrapper">
+
+            <aside class="order-sidebar" data-aos="fade-right">
+                <h2>Orders</h2>
+
+                <ul>
+                    <li class="active" data-filter="all">
+                        <i class="fa-solid fa-list"></i>
+                        All Orders
+                    </li>
+                    <li data-filter="dine-in">
+                        <i class="fa-solid fa-utensils"></i>
+                        Dine-In Orders
+                    </li>
+                    <li data-filter="pickup">
+                        <i class="fa-solid fa-bag-shopping"></i>
+                        Pickup Orders
+                    </li>
+                    <li data-filter="delivery">
+                        <i class="fa-solid fa-motorcycle"></i>
+                        Delivery Orders
+                    </li>
+                </ul>
+
+                <div class="sidebar-note">
+                    <p>Need more food?</p>
+                    <a href="menu.php" class="btn transparent">view menu</a>
+                </div>
+            </aside>
+
+            <main class="customer-order-content" data-aos="fade-left">
+
+                <div class="customer-order-card">
+
+                    <div class="customer-order-header">
+                        <div>
+                            <span class="section-highlight">Current Activity</span>
+                            <h1>Your Orders</h1>
+                        </div>
+
+                        <a href="menu.php" class="btn">order again</a>
+                    </div>
+
+                    <div class="order-list" id="order-list">
+                        <div class="menu-empty-message">
+                            <h2>Loading orders...</h2>
+                            <p>Please wait while we check your order history.</p>
+                        </div>
+                    </div>
+
+                    <div class="order-footer">
+                        <a href="index.html" class="back-home-btn">Back to Home</a>
+                        <a href="profile.html" class="back-home-btn secondary-btn protected-link" data-protected="true" data-target="profile.html">View Profile</a>
+                    </div>
+
+                </div>
+
+                <aside class="order-summary-card customer-order-summary">
+                    <span class="section-highlight">Quick Summary</span>
+                    <h3>Today’s Order Summary</h3>
+
+                    <ul id="order-summary-list">
+                        <li>Dine-In Orders — 0</li>
+                        <li>Pickup Orders — 0</li>
+                        <li>Delivery Orders — 0</li>
+                        <li>Latest Status — -</li>
+                    </ul>
+
+                    <div class="order-total-row">
+                        <span>Estimated Total</span>
+                        <strong id="summary-total">RM0.00</strong>
+                    </div>
+
+                    <p class="order-note">
+                        Orders shown here belong to your logged-in customer account.
+                    </p>
+                    <p class="order-status-pill">Status: Customer Login Protected</p>
+                </aside>
+
+            </main>
+
+        </div>
+
+    </section>
+
+    <footer id="footer">
+        <div class="company-info">
+            <img src="img/footer-logo.png" class="logo" alt="Munch Logo">
+
+            <div class="social-links">
+                <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                <a href="#"><i class="fa-brands fa-facebook"></i></a>
+                <a href="#"><i class="fa-brands fa-twitter"></i></a>
+            </div>
+
+            <div class="download-btn-group">
+                <a href="#" class="download-btn"><img src="img/play-store.png" alt="Play Store"></a>
+                <a href="#" class="download-btn"><img src="img/app-store.png" alt="App Store"></a>
+            </div>
+        </div>
+
+        <div class="useful-links footer-links-container">
+            <h5 class="footer-links-title">useful links</h5>
+            <a href="profile.html" class="footer-links protected-link" data-protected="true" data-target="profile.html">profile</a>
+            <a href="menu.php" class="footer-links">menu</a>
+            <a class="footer-links protected-link" data-protected="true" data-target="customerOrder.html" href="customerOrder.html">your orders</a>
+            <a href="Reservation.html" class="footer-links require-login-reservation">reservation</a>
+        </div>
+
+        <div class="information footer-links-container">
+            <h5 class="footer-links-title">information</h5>
+            <a href="index.html#about-section" class="footer-links">about us</a>
+            <a href="#" class="footer-links">privacy policy</a>
+            <a href="#" class="footer-links">terms and conditions</a>
+        </div>
+
+        <div class="contact footer-links-container">
+            <h5 class="footer-links-title">contact us</h5>
+            <p class="footer-text">Our Munch restaurant is located on Jalan 321, Shah Alam</p>
+            <p class="footer-text">Phone - 03-24552776</p>
+            <p class="footer-text">Email - munchService@email.com</p>
+        </div>
+
+        <div class="paymet-partners">
+            <img src="img/visa.png" alt="Visa">
+            <img src="img/master-card.png" alt="Master Card">
+            <img src="img/paypal.png" alt="PayPal">
+            <img src="img/apple-pay.png" alt="Apple Pay">
+        </div>
+
+        <p class="copyright">© 2026 Munch Food Ordering System. All Rights Reserved.</p>
+    </footer>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="app.js"></script>
+    <script src="auth.js"></script>
+    <script src="nav-order-fix.js"></script>
+
+    
+<script>
+
+function escapeAttribute(value) {
+    return String(value || "")
+        .replace(/&/g, "&amp;")
+        .replace(/"/g, "&quot;")
+        .replace(/'/g, "&#039;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;");
+}
+
+function formatRM(value) {
+    const amount = Number(value || 0);
+    return "RM" + amount.toFixed(2);
+}
+
+function getOrderTypeClass(type) {
+    type = String(type || "").toLowerCase();
+
+    if (type.includes("pickup")) return "pickup";
+    if (type.includes("delivery")) return "delivery";
+    return "dine-in";
+}
+
+function getStatusClass(status) {
+    status = String(status || "").toLowerCase();
+
+    if (status.includes("completed") || status.includes("served")) return "completed";
+    if (status.includes("ready")) return "ready";
+    if (status.includes("preparing")) return "preparing";
+    if (status.includes("cancelled") || status.includes("canceled")) return "cancelled";
+    if (status.includes("pending") || status.includes("paid") || status.includes("approved")) return "pending";
+
+    return "pending";
+}
+
+function setupOrderFilters() {
+    const sidebarItems = document.querySelectorAll(".order-sidebar li");
+
+    sidebarItems.forEach(function (item) {
+        if (item.dataset.ready === "true") return;
+        item.dataset.ready = "true";
+
+        item.addEventListener("click", function () {
+            sidebarItems.forEach(function (tab) {
+                tab.classList.remove("active");
+            });
+
+            item.classList.add("active");
+
+            const filter = item.dataset.filter;
+            const orderItems = document.querySelectorAll(".order-item");
+
+            orderItems.forEach(function (order) {
+                if (filter === "all" || order.dataset.type === filter) {
+                    order.style.display = "flex";
+                } else {
+                    order.style.display = "none";
+                }
+            });
+        });
+    });
+}
+
+function updateSummary(orders) {
+    let dineIn = 0;
+    let pickup = 0;
+    let delivery = 0;
+    let total = 0;
+    let latestStatus = "-";
+
+    orders.forEach(function (order, index) {
+        const typeClass = getOrderTypeClass(order.ORDERTYPE);
+
+        if (typeClass === "dine-in") dineIn++;
+        if (typeClass === "pickup") pickup++;
+        if (typeClass === "delivery") delivery++;
+
+        total += Number(order.TOTALAMOUNT || 0);
+
+        if (index === 0) {
+            latestStatus = order.STATUS || "-";
+        }
+    });
+
+    const summaryList = document.getElementById("order-summary-list");
+    const summaryTotal = document.getElementById("summary-total");
+
+    if (summaryList) {
+        summaryList.innerHTML = `
+            <li>Dine-In Orders — ${dineIn}</li>
+            <li>Pickup Orders — ${pickup}</li>
+            <li>Delivery Orders — ${delivery}</li>
+            <li>Latest Status — ${latestStatus}</li>
+        `;
+    }
+
+    if (summaryTotal) {
+        summaryTotal.textContent = formatRM(total);
+    }
+}
+
+function loadCustomerOrders() {
+    const orderList = document.getElementById("order-list") || document.querySelector(".order-list");
+
+    if (!orderList) return;
+
+    fetch("displayCustomerOrders.php", {
+        method: "GET",
+        cache: "no-store"
+    })
+        .then(function (response) {
+            return response.text();
+        })
+        .then(function (text) {
+            let data;
+
+            try {
+                data = JSON.parse(text);
+            } catch (error) {
+                console.error("displayCustomerOrders.php returned this instead of JSON:");
+                console.error(text);
+                throw new Error("displayCustomerOrders.php did not return valid JSON.");
+            }
+
+            if (!data.success) {
+                alert(data.message || "Please login first.");
+                window.location.href = "customer-login.html";
+                return;
+            }
+
+            if (!data.orders || data.orders.length === 0) {
+                orderList.innerHTML = `
+                    <div class="menu-empty-message">
+                        <h2>No orders found.</h2>
+                        <p>You have not placed any order yet.</p>
+                        <a href="menu.php" class="btn">View Menu</a>
+                    </div>
+                `;
+
+                updateSummary([]);
+                setupOrderFilters();
+                return;
+            }
+
+            orderList.innerHTML = "";
+
+            data.orders.forEach(function (order) {
+                const orderTypeClass = getOrderTypeClass(order.ORDERTYPE);
+                const statusClass = getStatusClass(order.STATUS);
+
+                const orderCard = document.createElement("article");
+                orderCard.className = "order-item";
+                orderCard.dataset.type = orderTypeClass;
+
+                orderCard.innerHTML = `
+                    <img class="order-preview-img" src="${escapeAttribute(order.PREVIEWIMAGE || 'img/restaurant-1.png')}" alt="${escapeAttribute(order.PREVIEWITEM || 'Munch Order')}">
+
+                    <div class="food-details">
+                        <h3>Order ${order.ORDERID}</h3>
+                        <p><strong>Date:</strong> ${order.ORDERDATE}</p>
+                        <p><strong>Payment:</strong> ${order.PAYMENTMETHOD}</p>
+                        <p class="food-price">${formatRM(order.TOTALAMOUNT)}</p>
+                    </div>
+
+                    <div class="order-qty">
+                        <span>Qty</span>
+                        <strong>${order.QUANTITY || "-"}</strong>
+                    </div>
+
+                    <div class="order-type">
+                        <span>${order.ORDERTYPE}</span>
+                    </div>
+
+                    <div class="order-status ${statusClass}">
+                        ${order.STATUS}
+                    </div>
+
+                    <div class="order-actions-mini">
+                        ${String(order.PAYMENTSTATUS || '').toLowerCase().includes('approved') || String(order.PAYMENTSTATUS || '').toLowerCase().includes('paid') || String(order.TRANSACTIONNO || '') !== '-'
+                            ? `<a href="${order.RECEIPTURL}" class="mini-receipt-link">Receipt</a>`
+                            : `<a href="${order.PAYMENTURL}" class="mini-receipt-link">Pay Now</a>`}
+                    </div>
+                `;
+
+                orderList.appendChild(orderCard);
+            });
+
+            updateSummary(data.orders);
+            setupOrderFilters();
+        })
+        .catch(function (error) {
+            console.error("Customer order loading error:", error);
+            alert("Could not load customer orders. Open displayCustomerOrders.php directly to see the PHP error.");
+        });
+}
+
+document.addEventListener("DOMContentLoaded", loadCustomerOrders);
+</script>
+    <script src="search.js"></script>
+    <script src="munch-footer-popups.js"></script>
+</body>
+
+</html>

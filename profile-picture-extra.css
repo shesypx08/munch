@@ -1,0 +1,38 @@
+/* ============================= */
+/* Profile Picture Upload Fix    */
+/* ============================= */
+
+.profile-popup-hidden {
+    display: none !important;
+}
+
+.profile-main-img {
+    object-fit: cover;
+}
+
+.profile-file-wrapper input[type="file"] {
+    width: 100%;
+    font-family: inherit;
+    font-size: .9rem;
+}
+
+.profile-upload-note {
+    display: block;
+    margin-top: .45rem;
+    font-size: .85rem;
+    opacity: .75;
+}
+
+.profile-preview-box {
+    margin-top: 1rem;
+    display: flex;
+    justify-content: center;
+}
+
+.profile-preview-box img {
+    width: 6rem;
+    height: 6rem;
+    border-radius: 50%;
+    object-fit: cover;
+    box-shadow: 0 .5rem 1rem var(--box-shadow-color);
+}

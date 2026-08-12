@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Google Fonts "Lato" -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@100;300;400;700;900&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome Link -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- AOS -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <!-- local CSS files -->
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="auth.css">
+    <link rel="stylesheet" href="customer-auth-separate.css">
+
+    <title>Munch | Customer Login</title>
+    <link rel="stylesheet" href="munch-clean-ui.css">
+</head>
+
+<body class="auth-login-entry">
+<header>
+        <nav class="navbar">
+            <a href="index.html"><img src="img/footer-logo.png" class="logo" alt="Munch Logo"></a>
+
+            <ul class="links-container">
+                <li class="link-items"><a href="index.html" class="links">Home</a></li>
+                <li class="link-items"><a href="profile.html" class="links protected-link" data-protected="true" data-target="profile.html">profile</a></li>
+                <li class="link-items"><a href="menu.php" class="links">menu</a></li>
+                <li class="link-items"><a href="order.html" class="links protected-link" data-protected="true" data-target="order.html">order</a></li>
+                <li class="link-items"><a href="Reservation.html" class="links require-login-reservation">Reservation</a></li>
+            </ul>
+
+            <div class="nav-extras">
+                <div class="search">
+                    <input type="text" class="search-box" placeholder="Search Menu.....">
+                    <button class="search-btn" type="button"><i class="fa-solid fa-magnifying-glass"></i></button>
+                </div>
+
+                <a href="order.html" class="cart protected-link" data-protected="true" data-target="order.html">
+                    <i class="fa-solid fa-cart-shopping"></i>
+                </a>
+
+                <div class="nav-toggler">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+
+    <main id="auth-main-section" class="customer-auth-page customer-auth-separate-page login-separate-page">
+        <div class="auth-content" data-aos="fade-right">
+            <span class="section-highlight">Customer Login</span>
+            <h1 class="auth-heading">Welcome back to Munch</h1>
+            <p class="auth-line">
+                Log in to view your profile, manage reservations, place orders, and enjoy faster checkout.
+            </p>
+
+            <div class="auth-benefit-container">
+                <div class="auth-benefit-card">
+                    <i class="fa-solid fa-utensils"></i>
+                    <h3>Easy Ordering</h3>
+                    <p>Continue your food order and checkout smoothly.</p>
+                </div>
+
+                <div class="auth-benefit-card">
+                    <i class="fa-solid fa-receipt"></i>
+                    <h3>Order History</h3>
+                    <p>Track your recent orders and payment details.</p>
+                </div>
+            </div>
+        </div>
+
+        <section class="auth-card customer-auth-separate-card login-card" data-aos="zoom-in">
+            <div class="auth-icon">
+                <i class="fa-solid fa-user"></i>
+            </div>
+
+            <h2>Customer Login</h2>
+            <p class="auth-card-line">Enter your account details to continue.</p>
+
+            <form class="auth-form" action="CustLogin.php" method="POST">
+                <div class="form-group">
+                    <label for="username">Username</label>
+                    <div class="input-wrapper">
+                        <i class="fa-solid fa-user"></i>
+                        <input type="text" id="username" name="USERNAME" placeholder="Enter your username" required>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <div class="input-wrapper">
+                        <i class="fa-solid fa-lock"></i>
+                        <input type="password" id="password" name="PASSWORD" placeholder="Enter your password" required>
+                    </div>
+                </div>
+
+                <div class="form-extra-row">
+                    <label class="check-row">
+                        <input type="checkbox" name="rememberMe">
+                        <span>Remember me</span>
+                    </label>
+                </div>
+
+                <button type="submit" class="btn auth-submit-btn">Login</button>
+            </form>
+
+            <p class="auth-switch-text">
+                New customer?
+                <a href="customer-signup.html" class="auth-page-switch" data-direction="right">Create an account</a>
+            </p>
+        </section>
+    </main>
+
+
+<footer id="footer">
+        <div class="company-info">
+            <img src="img/footer-logo.png" class="logo" alt="Munch Logo">
+
+            <div class="social-links">
+                <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                <a href="#"><i class="fa-brands fa-facebook"></i></a>
+                <a href="#"><i class="fa-brands fa-twitter"></i></a>
+            </div>
+
+            <div class="download-btn-group">
+                <a href="#" class="download-btn"><img src="img/play-store.png" alt="Play Store"></a>
+                <a href="#" class="download-btn"><img src="img/app-store.png" alt="App Store"></a>
+            </div>
+        </div>
+
+        <div class="useful-links footer-links-container">
+            <h5 class="footer-links-title">useful links</h5>
+            <a href="profile.html" class="footer-links protected-link" data-protected="true" data-target="profile.html">profile</a>
+            <a href="menu.php" class="footer-links">menu</a>
+            <a href="order.html" class="footer-links protected-link" data-protected="true" data-target="order.html">your orders</a>
+            <a href="Reservation.html" class="footer-links require-login-reservation">reservation</a>
+        </div>
+
+        <div class="information footer-links-container">
+            <h5 class="footer-links-title">information</h5>
+            <a href="index.html#about-section" class="footer-links">about us</a>
+            <a href="#" class="footer-links">privacy policy</a>
+            <a href="#" class="footer-links">terms and conditions</a>
+        </div>
+
+        <div class="contact footer-links-container">
+            <h5 class="footer-links-title">contact us</h5>
+            <p class="footer-text">Our Munch restaurant is located on Jalan 321, Shah Alam</p>
+            <p class="footer-text">Phone - 03-24552776</p>
+            <p class="footer-text">Email - munchService@email.com</p>
+        </div>
+
+        <div class="paymet-partners">
+            <img src="img/visa.png" alt="Visa">
+            <img src="img/master-card.png" alt="Master Card">
+            <img src="img/paypal.png" alt="PayPal">
+            <img src="img/apple-pay.png" alt="Apple Pay">
+        </div>
+
+        <p class="copyright">© 2026 Munch Food Ordering System. All Rights Reserved.</p>
+    </footer>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="munch-user-popups.js"></script>
+    <script src="auth.js"></script>
+    <script src="customer-auth-separate.js"></script>
+    <script src="munch-footer-popups.js"></script>
+</body>
+
+</html>

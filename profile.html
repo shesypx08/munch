@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile | Munch</title>
+
+    <!-- Google Fonts "Lato" -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@100;300;400;700;900&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome Link -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- AOS -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <!-- local CSS files -->
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="auth.css">
+    <link rel="stylesheet" href="profile-picture-extra.css">
+    <link rel="stylesheet" href="search-extra.css">
+    <link rel="stylesheet" href="profile-follow-db.css">
+    <link rel="stylesheet" href="munch-clean-ui.css">
+</head>
+
+<body data-page-requires-role="customer">
+
+    <!-- header -->
+    <header>
+        <!-- navbar -->
+        <nav class="navbar">
+            <!-- logo -->
+            <a href="index.html"><img src="img/footer-logo.png" class="logo" alt="Munch Logo"></a>
+
+            <!-- links -->
+            <ul class="links-container">
+                <li class="link-items"><a href="index.html" class="links">Home</a></li>
+                <li class="link-items"><a href="profile.html" class="links protected-link" data-protected="true" data-target="profile.html">profile</a></li>
+                <li class="link-items"><a href="menu.php" class="links">menu</a></li>
+                <li class="link-items"><a href="customerOrder.html" class="links protected-link" data-protected="true" data-target="customerOrder.html">order</a></li>
+                <li class="link-items"><a href="Reservation.html" class="links require-login-reservation">Reservation</a></li>
+            </ul>
+
+            <div class="nav-extras">
+                <!-- search box -->
+                <div class="search">
+                    <input type="text" class="search-box" placeholder="Search Menu.....">
+                    <button class="search-btn" type="button"><i class="fa-solid fa-magnifying-glass"></i></button>
+                </div>
+
+                <!-- cart icon -->
+                <a href="order.html" class="cart protected-link" data-protected="true" data-target="order.html"><i class="fa-solid fa-cart-shopping"></i></a>
+
+                <div class="nav-toggler">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </nav>
+
+        <!-- profile main section -->
+        <main id="profile-main-section">
+
+            <!-- profile welcome -->
+            <div class="profile-welcome" data-aos="fade-right">
+                <span class="section-highlight">My Account</span>
+                <h1 class="profile-heading">Welcome to your profile</h1>
+                <p class="profile-line">
+                    Welcome back! Manage your personal details, recent orders, reservations, and payment information here.
+                </p>
+
+                <div class="profile-action-btn-container">
+                    
+                    <button class="btn transparent" data-logout-role="customer">logout</button>
+                </div>
+            </div>
+
+            <!-- profile card -->
+            <div class="profile-card-main profile-edit-trigger" id="profileCardTrigger" data-aos="zoom-in" role="button" tabindex="0" aria-label="Edit profile details">
+                <button type="button" class="profile-card-edit-btn" aria-label="Edit profile">
+                    <i class="fa-solid fa-pen"></i>
+                </button>
+
+                <img src="img/user-1.png" class="profile-main-img" id="profile-picture" alt="User profile picture">
+
+                <h2 id="profile-name" data-profile-name>Loading...</h2>
+                <p class="profile-status" data-profile-status>Munch Customer</p>
+
+                <div class="profile-main-info">
+                    <p><i class="fa-solid fa-user"></i> <span id="profile-username">-</span></p>
+                    <p><i class="fa-solid fa-phone"></i> <span id="profile-phone">-</span></p>
+                    <p><i class="fa-solid fa-location-dot"></i> <span>Malaysia</span></p>
+                </div>
+
+                <p class="profile-edit-hint"><i class="fa-solid fa-pen-to-square"></i> Click this card to edit details</p>
+            </div>
+
+        </main>
+    </header>
+
+
+    <!-- edit profile popup -->
+    <div class="profile-edit-overlay" id="profileEditOverlay" aria-hidden="true">
+        <div class="profile-edit-popup" role="dialog" aria-modal="true" aria-labelledby="profileEditTitle">
+            <button type="button" class="profile-edit-close" id="closeProfileEditBtn" aria-label="Close edit profile popup">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+
+            <div class="profile-edit-header">
+                <span class="section-highlight">Edit Details</span>
+                <h2 id="profileEditTitle">Update your profile</h2>
+                <p>Change your personal information and profile picture here.</p>
+            </div>
+
+            <form class="profile-edit-form" id="profileEditForm" enctype="multipart/form-data">
+                <div class="profile-preview-box">
+                    <img src="img/user-1.png" id="edit-profile-preview" alt="Profile preview">
+                </div>
+
+                <div class="profile-edit-row">
+                    <label for="profileNameInput">Full Name</label>
+                    <input type="text" id="profileNameInput" name="CUSTNAME" placeholder="Enter your full name" required>
+                </div>
+
+                <div class="profile-edit-row">
+                    <label for="profilePhoneInput">Phone Number</label>
+                    <input type="text" id="profilePhoneInput" name="PHONENO" placeholder="Enter your phone number" required>
+                </div>
+
+                <div class="profile-edit-row">
+                    <label for="profilePictureInput">Profile Picture</label>
+                    <input type="file" id="profilePictureInput" name="PROFILEPIC" accept="image/jpeg,image/png,image/webp">
+                    <small class="profile-upload-note">Accepted: JPG, PNG, WEBP. Leave empty to keep current picture.</small>
+                </div>
+
+                <div class="profile-edit-row">
+                    <label for="profilePasswordInput">New Password</label>
+                    <input type="password" id="profilePasswordInput" name="NEWPASSWORD" placeholder="Leave blank to keep current password">
+                </div>
+
+                <div class="profile-edit-actions">
+                    <button type="button" class="btn transparent" id="cancelProfileEditBtn">cancel</button>
+                    <button type="submit" class="btn">save changes</button>
+                </div>
+
+                <p class="profile-edit-message" id="profileEditMessage">Profile updated successfully!</p>
+            </form>
+        </div>
+    </div>
+
+    <!-- profile dashboard section -->
+    <section id="profile-dashboard-section">
+
+        <div class="profile-dashboard-title">
+            <h1 class="section-title">Account Overview</h1>
+            <p class="section-info">
+                Here is a quick summary of your latest activity at Munch.
+            </p>
+        </div>
+
+        <div class="profile-dashboard-container">
+
+            <!-- recent order -->
+            <div class="profile-dashboard-box" data-aos="fade-up">
+                <div class="profile-box-title">
+                    <i class="fa-solid fa-bag-shopping"></i>
+                    <h3>Recent Order</h3>
+                </div>
+
+                <p><strong>Order ID:</strong> <span id="recent-order-id">-</span></p>
+                <p><strong>Meal:</strong> <span id="recent-order-meal">-</span></p>
+                <p><strong>Status:</strong> <span id="recent-order-status">-</span></p>
+                <p><strong>Total:</strong> <span id="recent-order-total">-</span></p>
+
+                <a href="customerOrder.html" class="btn transparent protected-link" data-protected="true" data-target="customerOrder.html">track order</a>
+            </div>
+
+            <!-- reservation -->
+            <div class="profile-dashboard-box" data-aos="fade-up" data-aos-delay="100">
+                <div class="profile-box-title">
+                    <i class="fa-solid fa-calendar-check"></i>
+                    <h3>Upcoming Reservation</h3>
+                </div>
+
+                <p><strong>Reservation ID:</strong> <span id="reservation-id">-</span></p>
+                <p><strong>Date:</strong> <span id="reservation-date">-</span></p>
+                <p><strong>Time:</strong> <span id="reservation-time">-</span></p>
+                <p><strong>Pax:</strong> <span id="reservation-pax">-</span></p>
+
+                <a href="Reservation.html" class="btn transparent require-login-reservation">view booking</a>
+            </div>
+
+            <!-- favourite meal -->
+            <div class="profile-dashboard-box" data-aos="fade-up" data-aos-delay="200">
+                <div class="profile-box-title">
+                    <i class="fa-solid fa-heart"></i>
+                    <h3>Favourite Meal</h3>
+                </div>
+
+                <p><strong>Dish:</strong> <span id="favourite-dish">-</span></p>
+                <p><strong>Category:</strong> <span id="favourite-category">-</span></p>
+                <p><strong>Ordered:</strong> <span id="favourite-count">-</span></p>
+                <p><strong>Menu ID:</strong> <span id="favourite-menu-id">-</span></p>
+
+                <a href="menu.php" class="btn transparent">order again</a>
+            </div>
+
+            <!-- payment -->
+            <div class="profile-dashboard-box" data-aos="fade-up" data-aos-delay="300">
+                <div class="profile-box-title">
+                    <i class="fa-solid fa-wallet"></i>
+                    <h3>Payment Details</h3>
+                </div>
+
+                <p><strong>Preferred Method:</strong> <span id="payment-method">-</span></p>
+                <p><strong>Last Payment:</strong> <span id="last-payment">-</span></p>
+                <p><strong>Sales ID:</strong> <span id="payment-sales-id">-</span></p>
+                <p><strong>Status:</strong> <span id="payment-status">-</span></p>
+
+                <a href="order.html" class="btn transparent protected-link" data-protected="true" data-target="order.html">manage payment</a>
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- footer -->
+    <footer id="footer">
+        <div class="company-info">
+            <img src="img/footer-logo.png" class="logo" alt="Munch Logo">
+
+            <div class="social-links">
+                <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                <a href="#"><i class="fa-brands fa-facebook"></i></a>
+                <a href="#"><i class="fa-brands fa-twitter"></i></a>
+            </div>
+
+            <div class="download-btn-group">
+                <a href="#" class="download-btn"><img src="img/play-store.png" alt="Play Store"></a>
+                <a href="#" class="download-btn"><img src="img/app-store.png" alt="App Store"></a>
+            </div>
+        </div>
+
+        <div class="useful-links footer-links-container">
+            <h5 class="footer-links-title">useful links</h5>
+            <a href="profile.html" class="footer-links protected-link" data-protected="true" data-target="profile.html">profile</a>
+            <a href="menu.php" class="footer-links">menu</a>
+            <a href="customerOrder.html" class="footer-links protected-link" data-protected="true" data-target="customerOrder.html">your orders</a>
+            <a href="Reservation.html" class="footer-links require-login-reservation">reservation</a>
+        </div>
+
+        <div class="information footer-links-container">
+            <h5 class="footer-links-title">information</h5>
+            <a href="#about-section" class="footer-links">about us</a>
+            <a href="#" class="footer-links">privacy policy</a>
+            <a href="#" class="footer-links">terms and conditions</a>
+        </div>
+
+        <div class="contact footer-links-container">
+            <h5 class="footer-links-title">contact us</h5>
+            <p class="footer-text">Our Munch restaurant is located on Jalan 321, Shah Alam</p>
+            <p class="footer-text">Phone - 03-24552776</p>
+            <p class="footer-text">Email - munchService@email.com</p>
+        </div>
+
+        <div class="paymet-partners">
+            <img src="img/visa.png" alt="Visa">
+            <img src="img/master-card.png" alt="Master Card">
+            <img src="img/paypal.png" alt="PayPal">
+            <img src="img/apple-pay.png" alt="Apple Pay">
+        </div>
+
+        <p class="copyright">© 2026 Munch Food Ordering System. All Rights Reserved.</p>
+    </footer>
+
+    <!-- scripts -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="app.js"></script>
+    <script src="auth.js"></script>
+    <script src="profile.js"></script>
+    <script src="search.js"></script>
+    <script src="munch-footer-popups.js"></script>
+</body>
+
+</html>

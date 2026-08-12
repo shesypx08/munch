@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Google Fonts "Lato" -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@100;300;400;700;900&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome Link -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+
+    <!-- AOS -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <!-- local CSS files -->
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="auth.css">
+    <title>Munch | Staff Login</title>
+    <link rel="stylesheet" href="munch-clean-ui.css">
+</head>
+
+<body>
+    <header>
+        <nav class="navbar">
+            <!-- logo -->
+            <a href="index.html"><img src="img/footer-logo.png" class="logo" alt="Munch Logo"></a>
+
+            <!-- links -->
+            <ul class="links-container">
+                <li class="link-items"><a href="index.html" class="links">Home</a></li>
+                <li class="link-items"><a href="profile.html" class="links protected-link" data-protected="true" data-target="profile.html">profile</a></li>
+                <li class="link-items"><a href="menu.php" class="links">menu</a></li>
+                <li class="link-items"><a href="order.html" class="links protected-link" data-protected="true" data-target="order.html">order</a></li>
+                <li class="link-items"><a href="Reservation.html" class="links require-login-reservation">Reservation</a></li>
+            </ul>
+
+            <div class="nav-extras">
+                <!-- search box -->
+                <div class="search">
+                    <input type="text" class="search-box" placeholder="Search Menu.....">
+                    <button class="search-btn"><i class="fa-solid fa-magnifying-glass"></i></button>
+                </div>
+
+                <!-- cart icon -->
+                <a href="order.html" class="cart protected-link" data-protected="true" data-target="order.html"><i class="fa-solid fa-cart-shopping"></i></a>
+
+                <div class="nav-toggler">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main id="auth-main-section" class="staff-auth-page">
+        <div class="auth-content" data-aos="fade-right">
+            <span class="section-highlight">Staff Access</span>
+            <h1 class="auth-heading">Welcome back, Munch team</h1>
+            <p class="auth-line">Log in to manage customer orders, update kitchen status, verify payments, and support daily restaurant operations.</p>
+
+            <div class="auth-benefit-container">
+                <div class="auth-benefit-card">
+                    <i class="fa-solid fa-clipboard-list"></i>
+                    <h3>Order Queue</h3>
+                    <p>View new orders and update their preparation status clearly.</p>
+                </div>
+                <div class="auth-benefit-card">
+                    <i class="fa-solid fa-cash-register"></i>
+                    <h3>Payment Support</h3>
+                    <p>Check payment method, payment status, and customer order details.</p>
+                </div>
+            </div>
+        </div>
+
+        <section class="auth-card" data-aos="zoom-in">
+            <div class="auth-icon staff-icon">
+                <i class="fa-solid fa-user-tie"></i>
+            </div>
+            <h2>Staff Login</h2>
+            <p class="auth-card-line">Enter your staff account details to continue.</p>
+
+            <form class="auth-form" action="StaffLogin.php" method="POST">
+                <input type="hidden" name="redirect" value="">
+
+                <div class="form-group">
+                    <label for="staffLoginId">Staff ID</label>
+                    <div class="input-wrapper">
+                        <i class="fa-solid fa-id-badge"></i>
+                        <input type="text" id="staffLoginId" name="STAFFID" placeholder="Example: S001" required>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="staffLoginPassword">Password</label>
+                    <div class="input-wrapper">
+                        <i class="fa-solid fa-lock"></i>
+                        <input type="password" id="staffLoginPassword" name="STAFFPASSWORD" placeholder="Enter your password" required>
+                    </div>
+                </div>
+
+                <div class="form-extra-row">
+                    <label class="check-row">
+                        <input type="checkbox" name="rememberStaff">
+                        <span>Remember me</span>
+                    </label>
+                </div>
+
+                <button type="submit" class="btn auth-submit-btn">Login as Staff</button>
+            </form>
+
+            <p class="auth-switch-text">New staff member? <a href="staff-signup.html">Register staff account</a></p>
+        </section>
+    </main>
+
+    <footer id="footer">
+        <div class="company-info">
+            <img src="img/footer-logo.png" class="logo" alt="Munch Logo">
+
+            <div class="social-links">
+                <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                <a href="#"><i class="fa-brands fa-facebook"></i></a>
+                <a href="#"><i class="fa-brands fa-twitter"></i></a>
+            </div>
+        </div>
+
+        <div class="useful-links footer-links-container">
+            <h5 class="footer-links-title">staff links</h5>
+            <a href="staff-dashboard.html" class="footer-links protected-link" data-protected="true" data-role-required="staff" data-target="staff-dashboard.html">dashboard</a>
+            <a href="staff-dashboard.html#orders" class="footer-links protected-link" data-protected="true" data-role-required="staff" data-target="staff-dashboard.html#orders">manage orders</a>
+            <a href="staff-dashboard.html#payments" class="footer-links protected-link" data-protected="true" data-role-required="staff" data-target="staff-dashboard.html#payments">payments</a>
+            <a href="#" class="footer-links" data-logout-role="staff">logout</a>
+        </div>
+
+        <div class="information footer-links-container">
+            <h5 class="footer-links-title">system</h5>
+            <a href="index.html" class="footer-links">customer website</a>
+            <a href="#kitchen" class="footer-links">kitchen flow</a>
+            <a href="#" class="footer-links">help</a>
+        </div>
+
+        <div class="contact footer-links-container">
+            <h5 class="footer-links-title">contact us</h5>
+            <p class="footer-text">Our Munch restaurant is located on Jalan 321, Shah Alam</p>
+            <p class="footer-text">Phone - 03-24552776</p>
+            <p class="footer-text">Email - munchService@email.com</p>
+        </div>
+
+        <p class="copyright">© 2026 Munch Food Ordering System. All Rights Reserved.</p>
+    </footer>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="munch-user-popups.js"></script>
+    <script src="auth.js"></script>
+    <script src="munch-footer-popups.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Google Fonts "Lato" -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@100;300;400;700;900&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome Link -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+
+    <!-- AOS -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <!-- local CSS files -->
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="auth.css">
+    <link rel="stylesheet" href="owner-style.css">
+    <title>Munch | Owner Reports</title>
+    <link rel="stylesheet" href="munch-clean-ui.css">
+</head>
+
+<body data-page-requires-role="owner">
+    <header>
+        <nav class="navbar owner-navbar">
+            <a href="owner-dashboard.html"><img src="img/footer-logo.png" class="logo" alt="Munch Logo"></a>
+
+            <ul class="links-container">
+                <li class="link-items"><a href="owner-dashboard.html" class="links protected-link " data-protected="true" data-role-required="owner" data-target="owner-dashboard.html">Dashboard</a></li>
+                <li class="link-items"><a href="owner-menu-management.html" class="links protected-link " data-protected="true" data-role-required="owner" data-target="owner-menu-management.html">Menu</a></li>
+                <li class="link-items"><a href="owner-employee-management.html" class="links protected-link " data-protected="true" data-role-required="owner" data-target="owner-employee-management.html">Employees</a></li>
+                <li class="link-items"><a href="owner-reports.html" class="links protected-link active-owner-link" data-protected="true" data-role-required="owner" data-target="owner-reports.html">Reports</a></li>
+                <li class="link-items"><a href="owner-booking-tracker.html" class="links protected-link " data-protected="true" data-role-required="owner" data-target="owner-booking-tracker.html">Bookings</a></li>
+            </ul>
+
+            <div class="nav-extras">
+                <div class="search">
+                    <input type="text" class="search-box" placeholder="Search owner data.....">
+                    <button class="search-btn" type="button"><i class="fa-solid fa-magnifying-glass"></i></button>
+                </div>
+
+                <a href="owner-reports.html" class="cart protected-link" data-protected="true" data-role-required="owner" data-target="owner-reports.html"><i class="fa-solid fa-chart-line"></i></a>
+
+                <div class="nav-toggler">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main id="staff-dashboard-hero" class="owner-dashboard-hero owner-short-hero">
+        <div class="staff-dashboard-content" data-aos="fade-right">
+            <span class="section-highlight">Reports & Analytics</span>
+            <h1 class="auth-heading">Sales, item ranking, and demand insights</h1>
+            <p class="auth-line">This page is the most important owner feature: it summarises daily, weekly, monthly, and yearly sales while tracking popular items, least popular items, reservations, catering, pax demand, and peak dates.</p>
+            <div class="staff-hero-actions">
+                <a href="#sales-reports" class="btn">Sales Reports</a>
+                <a href="#item-ranking" class="btn transparent">Item Ranking</a>
+                <a href="#booking-analytics" class="btn transparent">Booking Analytics</a>
+            </div>
+        </div>
+
+        <div class="staff-summary-card owner-summary-card" data-aos="zoom-in">
+            <i class="fa-solid fa-chart-pie"></i>
+            <h2>Report Hub</h2>
+            <p>All major owner reporting sections are placed here for easy presentation.</p>
+            <div class="owner-mini-kpi"><span>Yearly Revenue</span><strong>RM386,420</strong></div>
+        </div>
+    </main>
+
+    <section id="sales-reports" class="staff-management-section">
+        <div class="staff-section-title">
+            <span class="section-highlight">Sales Reports</span>
+            <h2 class="section-title">Daily, Weekly, Monthly & Yearly Sales</h2>
+            <p class="section-info">These KPI cards make it clear that the owner can monitor business performance by different reporting periods.</p>
+        </div>
+        <div class="owner-report-grid">
+            <article class="owner-report-card"><i class="fa-solid fa-calendar-day"></i><h3>Daily Sales</h3><strong>RM1,284.50</strong><p>46 orders • RM27.92 average order value</p><span class="status-badge ready">+12% vs yesterday</span></article>
+            <article class="owner-report-card"><i class="fa-solid fa-calendar-week"></i><h3>Weekly Sales</h3><strong>RM8,940.70</strong><p>314 orders • Best day: Saturday</p><span class="status-badge ready">+8% vs last week</span></article>
+            <article class="owner-report-card"><i class="fa-solid fa-calendar-days"></i><h3>Monthly Sales</h3><strong>RM36,880.20</strong><p>1,204 orders • 76 reservations</p><span class="status-badge preparing">On target</span></article>
+            <article class="owner-report-card"><i class="fa-solid fa-calendar"></i><h3>Yearly Sales</h3><strong>RM386,420.00</strong><p>12,780 orders • 42 catering events</p><span class="status-badge ready">+18% growth</span></article>
+        </div>
+    </section>
+
+    <section class="staff-management-section staff-alt-section">
+        <div class="owner-dashboard-layout">
+            <div class="owner-panel-card" data-aos="fade-right">
+                <div class="owner-panel-header"><div><span class="section-highlight">Monthly Revenue</span><h3>Sales Trend by Month</h3></div><i class="fa-solid fa-chart-column owner-soft-icon"></i></div>
+                <div class="owner-bar-chart tall-chart">
+                    <div style="height: 45%;"><span>Jan</span></div><div style="height: 52%;"><span>Feb</span></div><div style="height: 61%;"><span>Mar</span></div><div style="height: 70%;"><span>Apr</span></div><div style="height: 82%;"><span>May</span></div><div style="height: 88%;"><span>Jun</span></div><div style="height: 75%;"><span>Jul</span></div><div style="height: 92%;"><span>Aug</span></div>
+                </div>
+            </div>
+            <div class="owner-panel-card" data-aos="fade-left">
+                <div class="owner-panel-header"><div><span class="section-highlight">Payment Mix</span><h3>Revenue by Payment Method</h3></div><i class="fa-solid fa-wallet owner-soft-icon"></i></div>
+                        <div class="owner-progress-row">
+                            <div class="owner-progress-label"><span>Online Banking / FPX</span><strong>42%</strong></div>
+                            <div class="owner-progress-track"><span style="width: 42%;"></span></div>
+                            <small>RM15,489.68 this month</small>
+                        </div>                        <div class="owner-progress-row">
+                            <div class="owner-progress-label"><span>E-wallet</span><strong>28%</strong></div>
+                            <div class="owner-progress-track"><span style="width: 28%;"></span></div>
+                            <small>RM10,326.46 this month</small>
+                        </div>                        <div class="owner-progress-row">
+                            <div class="owner-progress-label"><span>Cash at Counter</span><strong>21%</strong></div>
+                            <div class="owner-progress-track"><span style="width: 21%;"></span></div>
+                            <small>RM7,744.84 this month</small>
+                        </div>                        <div class="owner-progress-row">
+                            <div class="owner-progress-label"><span>Card at Counter</span><strong>9%</strong></div>
+                            <div class="owner-progress-track"><span style="width: 9%;"></span></div>
+                            <small>RM3,319.22 this month</small>
+                        </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="item-ranking" class="staff-management-section">
+        <div class="staff-section-title">
+            <span class="section-highlight">Popular & Least Popular Items</span>
+            <h2 class="section-title">Item Sales Ranking</h2>
+            <p class="section-info">This helps the owner decide which menu items to promote, restock, or improve.</p>
+        </div>
+        <div class="owner-dashboard-layout">
+            <div class="owner-panel-card">
+                <div class="owner-panel-header"><div><span class="section-highlight">Most Popular</span><h3>Top Selling Items</h3></div><span class="status-badge ready">Best Seller</span></div>
+                        <div class="owner-progress-row">
+                            <div class="owner-progress-label"><span>#1 Nasi Kandar Ayam Goreng</span><strong>100%</strong></div>
+                            <div class="owner-progress-track"><span style="width: 100%;"></span></div>
+                            <small>128 sold • RM1,651.20</small>
+                        </div>                        <div class="owner-progress-row">
+                            <div class="owner-progress-label"><span>#2 Teh Ais</span><strong>88%</strong></div>
+                            <div class="owner-progress-track"><span style="width: 88%;"></span></div>
+                            <small>112 sold • RM358.40</small>
+                        </div>                        <div class="owner-progress-row">
+                            <div class="owner-progress-label"><span>#3 Combo Set Munch</span><strong>72%</strong></div>
+                            <div class="owner-progress-track"><span style="width: 72%;"></span></div>
+                            <small>91 sold • RM1,719.90</small>
+                        </div>                        <div class="owner-progress-row">
+                            <div class="owner-progress-label"><span>#4 Nasi Minyak Daging Rendang</span><strong>64%</strong></div>
+                            <div class="owner-progress-track"><span style="width: 64%;"></span></div>
+                            <small>81 sold • RM1,174.50</small>
+                        </div>
+            </div>
+            <div class="owner-panel-card">
+                <div class="owner-panel-header"><div><span class="section-highlight">Least Popular</span><h3>Items Needing Attention</h3></div><span class="status-badge pending">Review</span></div>
+                        <div class="owner-progress-row">
+                            <div class="owner-progress-label"><span>Lemon Tea Jug</span><strong>18%</strong></div>
+                            <div class="owner-progress-track"><span style="width: 18%;"></span></div>
+                            <small>12 sold • consider bundle</small>
+                        </div>                        <div class="owner-progress-row">
+                            <div class="owner-progress-label"><span>Sayur Campur Add-on</span><strong>15%</strong></div>
+                            <div class="owner-progress-track"><span style="width: 15%;"></span></div>
+                            <small>10 sold • improve display</small>
+                        </div>                        <div class="owner-progress-row">
+                            <div class="owner-progress-label"><span>Papadom Extra Pack</span><strong>10%</strong></div>
+                            <div class="owner-progress-track"><span style="width: 10%;"></span></div>
+                            <small>7 sold • maybe auto-add in combo</small>
+                        </div>                        <div class="owner-progress-row">
+                            <div class="owner-progress-label"><span>Catering Set C</span><strong>8%</strong></div>
+                            <div class="owner-progress-track"><span style="width: 8%;"></span></div>
+                            <small>2 bookings • review pricing</small>
+                        </div>
+            </div>
+        </div>
+        <div class="staff-table-wrapper owner-table-wrapper owner-ranking-table">
+            <table class="staff-table">
+                <thead><tr><th>Rank</th><th>Item</th><th>Category</th><th>Qty Sold</th><th>Revenue</th><th>Profit Signal</th><th>Owner Decision</th></tr></thead>
+                <tbody>
+                    <tr><td>1</td><td>Nasi Kandar Ayam Goreng</td><td>Main Dish</td><td>128</td><td>RM1,651.20</td><td><span class="status-badge ready">High</span></td><td>Keep as hero item</td></tr>
+                    <tr><td>2</td><td>Teh Ais</td><td>Drink</td><td>112</td><td>RM358.40</td><td><span class="status-badge ready">High</span></td><td>Bundle with lunch set</td></tr>
+                    <tr><td>3</td><td>Combo Set Munch</td><td>Main Dish</td><td>91</td><td>RM1,719.90</td><td><span class="status-badge ready">Very High</span></td><td>Feature on homepage</td></tr>
+                    <tr><td>4</td><td>Nasi Minyak Daging Rendang</td><td>Main Dish</td><td>81</td><td>RM1,174.50</td><td><span class="status-badge preparing">Medium</span></td><td>Maintain stock</td></tr>
+                    <tr><td>5</td><td>Lemon Tea Jug</td><td>Drink</td><td>12</td><td>RM84.00</td><td><span class="status-badge pending">Low</span></td><td>Promote for catering</td></tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <section id="booking-analytics" class="staff-management-section staff-alt-section">
+        <div class="staff-section-title">
+            <span class="section-highlight">Reservation & Catering Tracker</span>
+            <h2 class="section-title">Booking Demand Analytics</h2>
+            <p class="section-info">This section directly supports reservation tracker, catering tracker, popular date demand, average pax, and event planning insights.</p>
+        </div>
+        <div class="owner-report-grid">
+            <article class="owner-report-card"><i class="fa-solid fa-chair"></i><h3>Table Reservations</h3><strong>76</strong><p>This month • 93% confirmed</p><span class="status-badge ready">Avg 5.8 pax</span></article>
+            <article class="owner-report-card"><i class="fa-solid fa-people-group"></i><h3>Catering Bookings</h3><strong>11</strong><p>This month • 6 company events</p><span class="status-badge preparing">Avg 184 pax</span></article>
+            <article class="owner-report-card"><i class="fa-solid fa-calendar-check"></i><h3>Popular Date</h3><strong>Saturday</strong><p>Highest demand day for reservation and catering</p><span class="status-badge ready">38% demand</span></article>
+            <article class="owner-report-card"><i class="fa-solid fa-coins"></i><h3>Deposit Collected</h3><strong>RM9,840</strong><p>Reservation + catering deposit payments</p><span class="status-badge ready">Clean payment flow</span></article>
+        </div>
+        <div class="owner-dashboard-layout owner-margin-top">
+            <div class="owner-panel-card">
+                <div class="owner-panel-header"><div><span class="section-highlight">Popular Date Demand</span><h3>Reservation Demand by Day</h3></div><i class="fa-solid fa-calendar-week owner-soft-icon"></i></div>
+                        <div class="owner-progress-row">
+                            <div class="owner-progress-label"><span>Saturday</span><strong>92%</strong></div>
+                            <div class="owner-progress-track"><span style="width: 92%;"></span></div>
+                            <small>Most table and event bookings</small>
+                        </div>                        <div class="owner-progress-row">
+                            <div class="owner-progress-label"><span>Friday</span><strong>76%</strong></div>
+                            <div class="owner-progress-track"><span style="width: 76%;"></span></div>
+                            <small>Strong dinner demand</small>
+                        </div>                        <div class="owner-progress-row">
+                            <div class="owner-progress-label"><span>Sunday</span><strong>68%</strong></div>
+                            <div class="owner-progress-track"><span style="width: 68%;"></span></div>
+                            <small>Family lunch demand</small>
+                        </div>                        <div class="owner-progress-row">
+                            <div class="owner-progress-label"><span>Wednesday</span><strong>41%</strong></div>
+                            <div class="owner-progress-track"><span style="width: 41%;"></span></div>
+                            <small>Lowest midweek demand</small>
+                        </div>
+            </div>
+            <div class="owner-panel-card">
+                <div class="owner-panel-header"><div><span class="section-highlight">Average Pax</span><h3>Customer Group Size Insights</h3></div><i class="fa-solid fa-users owner-soft-icon"></i></div>
+                        <div class="owner-progress-row">
+                            <div class="owner-progress-label"><span>Normal dine-in reservation: 1 - 4 pax</span><strong>54%</strong></div>
+                            <div class="owner-progress-track"><span style="width: 54%;"></span></div>
+                            <small>Most common small group</small>
+                        </div>                        <div class="owner-progress-row">
+                            <div class="owner-progress-label"><span>Family reservation: 5 - 9 pax</span><strong>71%</strong></div>
+                            <div class="owner-progress-track"><span style="width: 71%;"></span></div>
+                            <small>Weekend family demand</small>
+                        </div>                        <div class="owner-progress-row">
+                            <div class="owner-progress-label"><span>Small event: 10 - 79 pax</span><strong>32%</strong></div>
+                            <div class="owner-progress-track"><span style="width: 32%;"></span></div>
+                            <small>Needs early deposit follow-up</small>
+                        </div>                        <div class="owner-progress-row">
+                            <div class="owner-progress-label"><span>Catering event: 80 - 500 pax</span><strong>45%</strong></div>
+                            <div class="owner-progress-track"><span style="width: 45%;"></span></div>
+                            <small>High revenue opportunity</small>
+                        </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="staff-management-section">
+        <div class="staff-section-title">
+            <span class="section-highlight">Detailed Tables</span>
+            <h2 class="section-title">Sales Report Breakdown</h2>
+            <p class="section-info">A lecturer can clearly see how the report will be generated from order, order item, payment, reservation, and catering data.</p>
+        </div>
+        <div class="staff-table-wrapper owner-table-wrapper">
+            <table class="staff-table">
+                <thead><tr><th>Report Period</th><th>Orders</th><th>Food Sales</th><th>Drink Sales</th><th>Reservation Sales</th><th>Catering Sales</th><th>Total Revenue</th></tr></thead>
+                <tbody>
+                    <tr><td>Today</td><td>46</td><td>RM870.10</td><td>RM164.40</td><td>RM90.00</td><td>RM160.00</td><td>RM1,284.50</td></tr>
+                    <tr><td>This Week</td><td>314</td><td>RM6,020.50</td><td>RM1,080.20</td><td>RM540.00</td><td>RM1,300.00</td><td>RM8,940.70</td></tr>
+                    <tr><td>This Month</td><td>1,204</td><td>RM24,110.80</td><td>RM4,380.40</td><td>RM2,420.00</td><td>RM5,969.00</td><td>RM36,880.20</td></tr>
+                    <tr><td>This Year</td><td>12,780</td><td>RM255,940.00</td><td>RM45,880.00</td><td>RM23,200.00</td><td>RM61,400.00</td><td>RM386,420.00</td></tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+    <footer id="footer">
+        <div class="company-info">
+            <img src="img/footer-logo.png" class="logo" alt="Munch Logo">
+
+            <div class="social-links">
+                <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                <a href="#"><i class="fa-brands fa-facebook"></i></a>
+                <a href="#"><i class="fa-brands fa-twitter"></i></a>
+            </div>
+        </div>
+
+        <div class="useful-links footer-links-container">
+            <h5 class="footer-links-title">owner links</h5>
+            <a href="owner-dashboard.html" class="footer-links protected-link" data-protected="true" data-role-required="owner" data-target="owner-dashboard.html">dashboard</a>
+            <a href="owner-menu-management.html" class="footer-links protected-link" data-protected="true" data-role-required="owner" data-target="owner-menu-management.html">menu control</a>
+            <a href="owner-reports.html" class="footer-links protected-link" data-protected="true" data-role-required="owner" data-target="owner-reports.html">reports</a>
+            <a href="#" class="footer-links" data-logout-role="owner">logout</a>
+        </div>
+
+        <div class="information footer-links-container">
+            <h5 class="footer-links-title">system</h5>
+            <a href="staff-dashboard.html" class="footer-links protected-link" data-protected="true" data-role-required="staff" data-target="staff-dashboard.html">staff dashboard</a>
+            <a href="index.html" class="footer-links">customer website</a>
+            <a href="owner-booking-tracker.html" class="footer-links protected-link" data-protected="true" data-role-required="owner" data-target="owner-booking-tracker.html">booking tracker</a>
+        </div>
+
+        <div class="contact footer-links-container">
+            <h5 class="footer-links-title">contact us</h5>
+            <p class="footer-text">Our Munch restaurant is located on Jalan 321, Shah Alam</p>
+            <p class="footer-text">Phone - 03-24552776</p>
+            <p class="footer-text">Email - munchService@email.com</p>
+        </div>
+
+        <p class="copyright">© 2026 Munch Food Ordering System. All Rights Reserved.</p>
+    </footer>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="munch-user-popups.js"></script>
+    <script src="owner-auth.js"></script>
+    <script src="owner-dashboard.js"></script>
+    <script src="owner-search.js"></script>
+    <script src="munch-footer-popups.js"></script>
+</body>
+
+</html>

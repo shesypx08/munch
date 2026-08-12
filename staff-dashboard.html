@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Google Fonts "Lato" -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@100;300;400;700;900&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome Link -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- AOS -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <!-- local CSS files -->
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="auth.css">
+
+    <title>Munch | Staff Dashboard</title>
+    <link rel="stylesheet" href="munch-clean-ui.css">
+</head>
+
+<body data-page-requires-role="staff">
+    <header>
+        <nav class="navbar">
+            <a href="staff-dashboard.html"><img src="img/footer-logo.png" class="logo" alt="Munch Logo"></a>
+
+            <ul class="links-container">
+                <li class="link-items"><a href="index.html" class="links">Home</a></li>
+                <li class="link-items"><a href="staff-dashboard.html" class="links protected-link" data-protected="true" data-role-required="staff" data-target="staff-dashboard.html">dashboard</a></li>
+                <li class="link-items"><a href="staff-dashboard.html#orders" class="links protected-link" data-protected="true" data-role-required="staff" data-target="staff-dashboard.html#orders">orders</a></li>
+                <li class="link-items"><a href="staff-dashboard.html#payments" class="links protected-link" data-protected="true" data-role-required="staff" data-target="staff-dashboard.html#payments">payments</a></li>
+                <li class="link-items"><a href="staff-dashboard.html#kitchen" class="links protected-link" data-protected="true" data-role-required="staff" data-target="staff-dashboard.html#kitchen">kitchen</a></li>
+            </ul>
+
+            <div class="nav-extras">
+                <div class="search">
+                    <input type="text" class="search-box" id="staff-search-box" placeholder="Search Order.....">
+                    <button class="search-btn" type="button" id="staff-search-btn"><i class="fa-solid fa-magnifying-glass"></i></button>
+                </div>
+
+                <a href="staff-dashboard.html#orders" class="cart protected-link" data-protected="true" data-role-required="staff" data-target="staff-dashboard.html#orders">
+                    <i class="fa-solid fa-bell"></i>
+                </a>
+
+                <div class="nav-toggler">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main id="staff-dashboard-hero">
+        <div class="staff-dashboard-content" data-aos="fade-right">
+            <span class="section-highlight">Staff Dashboard</span>
+            <h1 class="auth-heading">Manage today’s restaurant flow</h1>
+            <p class="auth-line">
+                View customer orders, update kitchen status, and check payment records in real time.
+            </p>
+            <div class="staff-hero-actions">
+                <a href="#orders" class="btn">View Orders</a>
+                <a href="#payments" class="btn transparent">Check Payments</a>
+            </div>
+        </div>
+
+        <div class="staff-summary-card" data-aos="zoom-in">
+            <i class="fa-solid fa-user-tie"></i>
+            <h2 id="staff-name-display">Staff Mode</h2>
+            <p id="staff-role-display">Logged in as restaurant staff</p>
+            <button class="btn" type="button" data-logout-role="staff">Logout</button>
+        </div>
+    </main>
+
+    <section id="staff-stats-section">
+        <div class="staff-stat-card" data-aos="zoom-in">
+            <i class="fa-solid fa-clock"></i>
+            <h3 id="pending-count">0</h3>
+            <p>Pending Orders</p>
+        </div>
+
+        <div class="staff-stat-card" data-aos="zoom-in" data-aos-delay="100">
+            <i class="fa-solid fa-fire-burner"></i>
+            <h3 id="preparing-count">0</h3>
+            <p>Preparing</p>
+        </div>
+
+        <div class="staff-stat-card" data-aos="zoom-in" data-aos-delay="200">
+            <i class="fa-solid fa-circle-check"></i>
+            <h3 id="ready-served-count">0</h3>
+            <p>Ready / Completed</p>
+        </div>
+
+        <div class="staff-stat-card" data-aos="zoom-in" data-aos-delay="300">
+            <i class="fa-solid fa-money-check-dollar"></i>
+            <h3 id="today-sales">RM0.00</h3>
+            <p>Today’s Sales</p>
+        </div>
+    </section>
+
+    <section id="orders" class="staff-management-section">
+        <div class="staff-section-title">
+            <span class="section-highlight">Order Management</span>
+            <h2 class="section-title">Active Orders</h2>
+            <p class="section-info">Staff can update the order flow: Pending → Preparing → Ready → Completed.</p>
+        </div>
+
+        <div class="staff-order-grid" id="staff-order-grid">
+            <div class="menu-empty-message">
+                <h2>Loading orders...</h2>
+                <p>Please wait while we check today’s orders.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="payments" class="staff-management-section staff-alt-section">
+        <div class="staff-section-title">
+            <span class="section-highlight">Payment Checking</span>
+            <h2 class="section-title">Payment Status</h2>
+            <p class="section-info">Review customer payments and daily sales in one place.</p>
+        </div>
+
+        <div class="staff-table-wrapper">
+            <table class="staff-table">
+                <thead>
+                    <tr>
+                        <th>Order ID</th>
+                        <th>Customer</th>
+                        <th>Method</th>
+                        <th>Total</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+
+                <tbody id="staff-payment-table">
+                    <tr>
+                        <td colspan="5">Loading payment records...</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <section id="kitchen" class="staff-management-section">
+        <div class="staff-section-title">
+            <span class="section-highlight">Kitchen Flow</span>
+            <h2 class="section-title">Preparation Board</h2>
+            <p class="section-info">This section follows the order status flow from pending to completed.</p>
+        </div>
+
+        <div class="kitchen-flow-grid">
+            <div class="kitchen-flow-card">
+                <i class="fa-solid fa-hourglass-start"></i>
+                <h3>Pending</h3>
+                <p><span id="kitchen-pending-count">0</span> order(s) waiting for staff acceptance.</p>
+            </div>
+
+            <div class="kitchen-flow-card">
+                <i class="fa-solid fa-fire"></i>
+                <h3>Preparing</h3>
+                <p><span id="kitchen-preparing-count">0</span> order(s) currently being prepared.</p>
+            </div>
+
+            <div class="kitchen-flow-card">
+                <i class="fa-solid fa-bell-concierge"></i>
+                <h3>Ready</h3>
+                <p><span id="kitchen-ready-count">0</span> order(s) ready for pickup or serving.</p>
+            </div>
+
+            <div class="kitchen-flow-card">
+                <i class="fa-solid fa-circle-check"></i>
+                <h3>Completed</h3>
+                <p><span id="kitchen-served-count">0</span> order(s) completed today.</p>
+            </div>
+        </div>
+    </section>
+
+    <footer id="footer">
+        <div class="company-info">
+            <img src="img/footer-logo.png" class="logo" alt="Munch Logo">
+
+            <div class="social-links">
+                <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                <a href="#"><i class="fa-brands fa-facebook"></i></a>
+                <a href="#"><i class="fa-brands fa-twitter"></i></a>
+            </div>
+        </div>
+
+        <div class="useful-links footer-links-container">
+            <h5 class="footer-links-title">staff links</h5>
+            <a href="staff-dashboard.html" class="footer-links protected-link" data-protected="true" data-role-required="staff" data-target="staff-dashboard.html">dashboard</a>
+            <a href="staff-dashboard.html#orders" class="footer-links protected-link" data-protected="true" data-role-required="staff" data-target="staff-dashboard.html#orders">manage orders</a>
+            <a href="staff-dashboard.html#payments" class="footer-links protected-link" data-protected="true" data-role-required="staff" data-target="staff-dashboard.html#payments">payments</a>
+            <a href="#" class="footer-links" data-logout-role="staff">logout</a>
+        </div>
+
+        <div class="information footer-links-container">
+            <h5 class="footer-links-title">system</h5>
+            <a href="index.html" class="footer-links">customer website</a>
+            <a href="#kitchen" class="footer-links">kitchen flow</a>
+            <a href="#" class="footer-links">help</a>
+        </div>
+
+        <div class="contact footer-links-container">
+            <h5 class="footer-links-title">contact us</h5>
+            <p class="footer-text">Our Munch restaurant is located on Jalan 321, Shah Alam</p>
+            <p class="footer-text">Phone - 03-24552776</p>
+            <p class="footer-text">Email - munchService@email.com</p>
+        </div>
+
+        <p class="copyright">© 2026 Munch Food Ordering System. All Rights Reserved.</p>
+    </footer>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="munch-user-popups.js"></script>
+    <script src="auth.js"></script>
+    <script src="staff-dashboard.js?v=next-status-button-1"></script>
+    <script src="munch-footer-popups.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Google Fonts "Lato" -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@100;300;400;700;900&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome Link -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- AOS -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <!-- local CSS files -->
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="auth.css">
+    <link rel="stylesheet" href="customer-auth-separate.css">
+
+    <title>Munch | Customer Sign Up</title>
+    <link rel="stylesheet" href="munch-clean-ui.css">
+</head>
+
+<body class="auth-signup-entry signup-layout-reversed">
+<header>
+        <nav class="navbar">
+            <a href="index.html"><img src="img/footer-logo.png" class="logo" alt="Munch Logo"></a>
+
+            <ul class="links-container">
+                <li class="link-items"><a href="index.html" class="links">Home</a></li>
+                <li class="link-items"><a href="profile.html" class="links protected-link" data-protected="true" data-target="profile.html">profile</a></li>
+                <li class="link-items"><a href="menu.php" class="links">menu</a></li>
+                <li class="link-items"><a href="order.html" class="links protected-link" data-protected="true" data-target="order.html">order</a></li>
+                <li class="link-items"><a href="Reservation.html" class="links require-login-reservation">Reservation</a></li>
+            </ul>
+
+            <div class="nav-extras">
+                <div class="search">
+                    <input type="text" class="search-box" placeholder="Search Menu.....">
+                    <button class="search-btn" type="button"><i class="fa-solid fa-magnifying-glass"></i></button>
+                </div>
+
+                <a href="order.html" class="cart protected-link" data-protected="true" data-target="order.html">
+                    <i class="fa-solid fa-cart-shopping"></i>
+                </a>
+
+                <div class="nav-toggler">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+
+    <main id="auth-main-section" class="customer-auth-page customer-auth-separate-page signup-separate-page">
+        <section class="auth-card customer-auth-separate-card signup-card" data-aos="zoom-in">
+            <div class="auth-icon">
+                <i class="fa-solid fa-user-plus"></i>
+            </div>
+
+            <h2>Customer Sign Up</h2>
+            <p class="auth-card-line">Fill in your details to create your account.</p>
+
+            <form class="auth-form" action="customerSignUp.php" method="POST" novalidate>
+                <div class="form-group">
+                    <label for="custName">Full Name</label>
+                    <div class="input-wrapper">
+                        <i class="fa-solid fa-user"></i>
+                        <input type="text" id="custName" name="CUSTNAME" placeholder="Enter your full name" required>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="custUsername">Username</label>
+                    <div class="input-wrapper">
+                        <i class="fa-solid fa-at"></i>
+                        <input type="text" id="custUsername" name="CUSTUSERNAME" placeholder="Choose a username" required>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="custEmail">Email Address</label>
+                    <div class="input-wrapper">
+                        <i class="fa-solid fa-envelope"></i>
+                        <input type="email" id="custEmail" name="CUSTEMAIL" placeholder="Example: yourname@email.com" required>
+                    </div>
+                    <small class="field-note">We will send a verification link to this email.</small>
+                </div>
+
+                <div class="form-group">
+                    <label for="phoneNo">Phone Number</label>
+                    <div class="input-wrapper">
+                        <i class="fa-solid fa-phone"></i>
+                        <input type="text" id="phoneNo" name="PHONENO" placeholder="Example: 0123456789" maxlength="11" pattern="[0-9]{10,11}" title="Phone number must be 10 to 11 digits" required>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="custPassword">Password</label>
+                    <div class="input-wrapper">
+                        <i class="fa-solid fa-lock"></i>
+                        <input type="password" id="custPassword" name="CUSTPASSWORD" placeholder="Minimum 8 characters" required>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="confirmPassword">Confirm Password</label>
+                    <div class="input-wrapper">
+                        <i class="fa-solid fa-shield-halved"></i>
+                        <input type="password" id="confirmPassword" name="CONFIRMPASSWORD" placeholder="Confirm your password" required>
+                    </div>
+                </div>
+
+                <label class="check-row terms-row">
+                    <input type="checkbox" name="terms" required>
+                    <span>I agree to the terms and conditions.</span>
+                </label>
+
+                <button type="submit" name="save" class="btn auth-submit-btn">Create Account</button>
+            </form>
+
+            <p class="auth-switch-text">
+                Already have an account?
+                <a href="customer-login.html" class="auth-page-switch" data-direction="left">Login here</a>
+            </p>
+        </section>
+
+        <div class="auth-content" data-aos="fade-right">
+            <span class="section-highlight">Customer Registration</span>
+            <h1 class="auth-heading">Create your Munch account</h1>
+            <p class="auth-line">
+                Register once to order food, make reservations, and manage your customer profile easily.
+            </p>
+
+            <div class="auth-benefit-container">
+                <div class="auth-benefit-card">
+                    <i class="fa-solid fa-user-check"></i>
+                    <h3>Personal Profile</h3>
+                    <p>Keep your customer details ready for faster ordering.</p>
+                </div>
+
+                <div class="auth-benefit-card">
+                    <i class="fa-solid fa-calendar-check"></i>
+                    <h3>Reservations</h3>
+                    <p>Book your table or catering request using your account.</p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+
+<footer id="footer">
+        <div class="company-info">
+            <img src="img/footer-logo.png" class="logo" alt="Munch Logo">
+
+            <div class="social-links">
+                <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                <a href="#"><i class="fa-brands fa-facebook"></i></a>
+                <a href="#"><i class="fa-brands fa-twitter"></i></a>
+            </div>
+
+            <div class="download-btn-group">
+                <a href="#" class="download-btn"><img src="img/play-store.png" alt="Play Store"></a>
+                <a href="#" class="download-btn"><img src="img/app-store.png" alt="App Store"></a>
+            </div>
+        </div>
+
+        <div class="useful-links footer-links-container">
+            <h5 class="footer-links-title">useful links</h5>
+            <a href="profile.html" class="footer-links protected-link" data-protected="true" data-target="profile.html">profile</a>
+            <a href="menu.php" class="footer-links">menu</a>
+            <a href="order.html" class="footer-links protected-link" data-protected="true" data-target="order.html">your orders</a>
+            <a href="Reservation.html" class="footer-links require-login-reservation">reservation</a>
+        </div>
+
+        <div class="information footer-links-container">
+            <h5 class="footer-links-title">information</h5>
+            <a href="index.html#about-section" class="footer-links">about us</a>
+            <a href="#" class="footer-links">privacy policy</a>
+            <a href="#" class="footer-links">terms and conditions</a>
+        </div>
+
+        <div class="contact footer-links-container">
+            <h5 class="footer-links-title">contact us</h5>
+            <p class="footer-text">Our Munch restaurant is located on Jalan 321, Shah Alam</p>
+            <p class="footer-text">Phone - 03-24552776</p>
+            <p class="footer-text">Email - munchService@email.com</p>
+        </div>
+
+        <div class="paymet-partners">
+            <img src="img/visa.png" alt="Visa">
+            <img src="img/master-card.png" alt="Master Card">
+            <img src="img/paypal.png" alt="PayPal">
+            <img src="img/apple-pay.png" alt="Apple Pay">
+        </div>
+
+        <p class="copyright">© 2026 Munch Food Ordering System. All Rights Reserved.</p>
+    </footer>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="munch-user-popups.js"></script>
+    <script src="auth.js"></script>
+    <script src="customer-auth-separate.js"></script>
+    <script src="munch-footer-popups.js"></script>
+</body>
+
+</html>

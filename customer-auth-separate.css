@@ -1,0 +1,239 @@
+/* ============================= */
+/* CUSTOMER AUTH DIRECTION + LAYOUT */
+/* Separate login/register files. */
+/* Login slides RIGHT to register. Register slides LEFT to login. */
+/* Registration page: form box LEFT, details/info RIGHT. */
+/* ============================= */
+
+.customer-auth-separate-page {
+    overflow: hidden;
+}
+
+.login-separate-page,
+.signup-separate-page {
+    flex-direction: row;
+}
+
+/* Signup layout is reversed compared with login:
+   signup box left, page details right. */
+.signup-separate-page .customer-auth-separate-card {
+    order: 1;
+}
+
+.signup-separate-page .auth-content {
+    order: 2;
+}
+
+/* Card entrance animations */
+.customer-auth-separate-card {
+    animation-duration: .58s;
+    animation-timing-function: ease-in-out;
+    animation-fill-mode: both;
+    position: relative;
+    z-index: 2;
+}
+
+.auth-login-entry .customer-auth-separate-card {
+    animation-name: loginCardEnterFromRight;
+}
+
+/* Registration box slides LEFT into the left-side position */
+.auth-signup-entry .customer-auth-separate-card {
+    animation-name: signupCardEnterToLeft;
+}
+
+/* Click Create an account:
+   login box slides RIGHT before moving to registration page. */
+body.auth-exit-right .customer-auth-separate-card {
+    animation-name: loginCardExitRight;
+}
+
+body.auth-exit-right .auth-content {
+    animation: contentExitRight .45s ease-in-out both;
+}
+
+/* Click Login here:
+   registration box slides LEFT before moving to login page. */
+body.auth-exit-left .customer-auth-separate-card {
+    animation-name: signupCardExitLeft;
+}
+
+body.auth-exit-left .auth-content {
+    animation: contentExitLeft .45s ease-in-out both;
+}
+
+@keyframes loginCardEnterFromRight {
+    from {
+        opacity: 0;
+        transform: translateX(-5rem) scale(.98);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0) scale(1);
+    }
+}
+
+@keyframes signupCardEnterToLeft {
+    from {
+        opacity: 0;
+        transform: translateX(5rem) scale(.98);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0) scale(1);
+    }
+}
+
+@keyframes loginCardExitRight {
+    from {
+        opacity: 1;
+        transform: translateX(0) scale(1);
+    }
+
+    to {
+        opacity: 0;
+        transform: translateX(5.5rem) scale(.97);
+    }
+}
+
+@keyframes signupCardExitLeft {
+    from {
+        opacity: 1;
+        transform: translateX(0) scale(1);
+    }
+
+    to {
+        opacity: 0;
+        transform: translateX(-5.5rem) scale(.97);
+    }
+}
+
+@keyframes contentExitRight {
+    from {
+        opacity: 1;
+        transform: translateX(0);
+    }
+
+    to {
+        opacity: .35;
+        transform: translateX(2rem);
+    }
+}
+
+@keyframes contentExitLeft {
+    from {
+        opacity: 1;
+        transform: translateX(0);
+    }
+
+    to {
+        opacity: .35;
+        transform: translateX(-2rem);
+    }
+}
+
+/* Details/info side movement */
+.auth-login-entry .auth-content {
+    animation: infoEnterFromLeft .55s ease-in-out both;
+}
+
+.auth-signup-entry .auth-content {
+    animation: infoEnterFromRight .55s ease-in-out both;
+}
+
+@keyframes infoEnterFromLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-2rem);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes infoEnterFromRight {
+    from {
+        opacity: 0;
+        transform: translateX(2rem);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* Keep signup form comfortable */
+.signup-separate-page .signup-card {
+    padding-top: 2.5rem;
+    padding-bottom: 2.5rem;
+}
+
+.signup-separate-page .signup-card .auth-form {
+    gap: .85rem;
+}
+
+.signup-separate-page .signup-card .form-group {
+    margin-bottom: .65rem;
+}
+
+.signup-separate-page .signup-card .input-wrapper input {
+    padding-top: .8rem;
+    padding-bottom: .8rem;
+}
+
+.signup-separate-page .signup-card .terms-row {
+    margin-top: .2rem;
+}
+
+.auth-page-switch {
+    cursor: pointer;
+}
+
+.customer-auth-separate-page .auth-content {
+    position: relative;
+    z-index: 1;
+}
+
+/* Responsive */
+@media (max-width: 998px) {
+    .login-separate-page,
+    .signup-separate-page {
+        flex-direction: column;
+    }
+
+    .signup-separate-page .auth-content {
+        order: 1;
+    }
+
+    .signup-separate-page .customer-auth-separate-card {
+        order: 2;
+    }
+}
+
+@media (max-width: 520px) {
+    .customer-auth-separate-card {
+        animation-duration: .35s;
+    }
+
+    .auth-login-entry .customer-auth-separate-card,
+    .auth-signup-entry .customer-auth-separate-card {
+        animation-name: mobileCardEnter;
+    }
+
+    @keyframes mobileCardEnter {
+        from {
+            opacity: 0;
+            transform: translateY(1.5rem);
+        }
+
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+}

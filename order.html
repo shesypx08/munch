@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cart & Order | Munch</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@100;300;400;700;900&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="auth.css">
+    <link rel="stylesheet" href="munch-clean-ui.css">
+</head>
+
+<body data-page-requires-role="customer">
+
+    <header>
+        <nav class="navbar">
+            <a href="index.html"><img src="img/footer-logo.png" class="logo" alt="Munch Logo"></a>
+
+            <ul class="links-container">
+                <li class="link-items"><a href="index.html" class="links">Home</a></li>
+                <li class="link-items"><a href="profile.html" class="links protected-link" data-protected="true" data-target="profile.html">profile</a></li>
+                <li class="link-items"><a href="menu.php" class="links">menu</a></li>
+                <li class="link-items"><a href="order.html" class="links protected-link" data-protected="true" data-target="order.html">order</a></li>
+                <li class="link-items"><a href="Reservation.html" class="links require-login-reservation">Reservation</a></li>
+            </ul>
+
+            <div class="nav-extras">
+                <div class="search">
+                    <input type="text" class="search-box" placeholder="Search Menu.....">
+                    <button class="search-btn" type="button"><i class="fa-solid fa-magnifying-glass"></i></button>
+                </div>
+
+                <a href="order.html" class="cart protected-link" data-protected="true" data-target="order.html">
+                    <i class="fa-solid fa-cart-shopping"></i>
+                    <span class="cart-count-badge" id="cart-count-badge">0</span>
+                </a>
+
+                <div class="nav-toggler">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </nav>
+
+        <main id="order-hero-section">
+            <div class="order-hero-content" data-aos="fade-right">
+                <span class="section-highlight">Customer Cart</span>
+                <h1 class="order-hero-heading">Build your Munch order</h1>
+                <p class="order-hero-line">Add menu items to your cart, update quantities, and submit your order easily.</p>
+            </div>
+
+            <div class="order-hero-card" data-aos="zoom-in">
+                <i class="fa-solid fa-bag-shopping"></i>
+                <h2>Live Cart</h2>
+                <p>Your cart is kept ready while you choose meals and complete checkout.</p>
+            </div>
+        </main>
+    </header>
+
+    <section id="customer-order-section">
+        <div class="reservation-title">
+            <span class="section-highlight">Order Menu</span>
+            <h1 class="section-title">Available Menu</h1>
+            <p class="section-info">Items are loaded from your MENU table. Click add to cart to start ordering.</p>
+        </div>
+
+        <div class="order-layout">
+            <div class="order-menu-grid" id="order-menu-grid">
+                <div class="menu-empty-message">
+                    <h2>Loading menu...</h2>
+                    <p>Please wait while we load the menu.</p>
+                </div>
+            </div>
+
+            <aside class="order-summary-card" data-aos="fade-left">
+                <span class="section-highlight">Current Cart</span>
+                <h3>Order Summary</h3>
+
+                <ul id="cart-items-list">
+                    <li>Your cart is empty.</li>
+                </ul>
+
+                <div class="order-total-row">
+                    <span>Subtotal</span>
+                    <strong id="cart-subtotal">RM0.00</strong>
+                </div>
+
+                <div class="order-total-row">
+                    <span>Service Tax 6%</span>
+                    <strong id="cart-tax">RM0.00</strong>
+                </div>
+
+                <div class="order-total-row">
+                    <span>Total</span>
+                    <strong id="cart-total">RM0.00</strong>
+                </div>
+
+                <div class="checkout-form-box">
+                    <label for="order-type">Order Type</label>
+                    <select id="order-type">
+                        <option value="Dine In">Dine In</option>
+                        <option value="Pickup">Pickup</option>
+                        <option value="Delivery">Delivery</option>
+                    </select>
+
+                    <label for="delivery-address">Delivery Address</label>
+                    <textarea id="delivery-address" placeholder="Required for delivery orders only"></textarea>
+
+                    <label for="payment-method">Payment Method</label>
+                    <select id="payment-method">
+                        <option value="Cash at Counter">Cash at Counter</option>
+                        <option value="Card Payment">Card Payment</option>
+                        <option value="Online Banking">Online Banking</option>
+                        <option value="E-Wallet">E-Wallet</option>
+                        <option value="QR Payment">QR Payment</option>
+                    </select>
+
+                    <label for="special-request">Special Request</label>
+                    <textarea id="special-request" placeholder="Less spicy, no onion, etc."></textarea>
+                </div>
+
+                <p class="order-note">Checkout will confirm your order and prepare it for payment.</p>
+
+                <button class="btn auth-submit-btn" id="checkout-btn">proceed to checkout</button>
+                <button class="btn transparent auth-submit-btn" id="clear-cart-btn" type="button">clear cart</button>
+                <p class="order-status-pill" id="cart-status">Status: Cart Ready</p>
+            </aside>
+        </div>
+    </section>
+
+    <footer id="footer">
+        <div class="company-info">
+            <img src="img/footer-logo.png" class="logo" alt="Munch Logo">
+            <div class="social-links">
+                <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                <a href="#"><i class="fa-brands fa-facebook"></i></a>
+                <a href="#"><i class="fa-brands fa-twitter"></i></a>
+            </div>
+        </div>
+
+        <div class="useful-links footer-links-container">
+            <h5 class="footer-links-title">useful links</h5>
+            <a href="profile.html" class="footer-links protected-link" data-protected="true" data-target="profile.html">profile</a>
+            <a href="menu.php" class="footer-links">menu</a>
+            <a href="order.html" class="footer-links protected-link" data-protected="true" data-target="order.html">your cart</a>
+            <a href="Reservation.html" class="footer-links require-login-reservation">reservation</a>
+        </div>
+
+        <div class="information footer-links-container">
+            <h5 class="footer-links-title">information</h5>
+            <a href="index.html#about-section" class="footer-links">about us</a>
+            <a href="#" class="footer-links">privacy policy</a>
+            <a href="#" class="footer-links">terms and conditions</a>
+        </div>
+
+        <div class="contact footer-links-container">
+            <h5 class="footer-links-title">contact us</h5>
+            <p class="footer-text">Our Munch restaurant is located on Jalan 321, Shah Alam</p>
+            <p class="footer-text">Phone - 03-24552776</p>
+            <p class="footer-text">Email - munchService@email.com</p>
+        </div>
+
+        <p class="copyright">© 2026 Munch Food Ordering System. All Rights Reserved.</p>
+    </footer>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="app.js"></script>
+    <script src="auth.js"></script>
+    <script src="cart.js"></script>
+    <script src="munch-footer-popups.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menu | Munch</title>
+
+    <!-- Google Fonts "Lato" -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@100;300;400;700;900&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome Link -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- AOS -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <!-- local CSS files -->
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="auth.css">
+	<link rel="stylesheet" href="search-extra.css">
+    <link rel="stylesheet" href="munch-clean-ui.css">
+</head>
+
+<body>
+
+    <!-- header -->
+    <header>
+        <!-- navbar -->
+        <nav class="navbar">
+            <!-- logo -->
+            <a href="index.html"><img src="img/footer-logo.png" class="logo" alt="Munch Logo"></a>
+
+            <!-- links -->
+            <ul class="links-container">
+                <li class="link-items"><a href="index.html" class="links">Home</a></li>
+                <li class="link-items"><a href="profile.html" class="links protected-link" data-protected="true" data-target="profile.html">profile</a></li>
+                <li class="link-items"><a href="menu.php" class="links">menu</a></li>
+                <li class="link-items"><a class="links protected-link" data-protected="true" data-target="customerOrder.html" href="customerOrder.html">order</a></li>
+                <li class="link-items"><a href="Reservation.html" class="links require-login-reservation">Reservation</a></li>
+            </ul>
+
+            <div class="nav-extras">
+                <!-- search box -->
+                <div class="search">
+                    <input type="text" class="search-box" placeholder="Search Menu.....">
+                    <button class="search-btn" type="button"><i class="fa-solid fa-magnifying-glass"></i></button>
+                </div>
+
+                <!-- cart icon -->
+                <a href="order.html" class="cart protected-link" data-protected="true" data-target="order.html"><i class="fa-solid fa-cart-shopping"></i></a>
+
+                <div class="nav-toggler">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </nav>
+
+        <!-- menu hero section -->
+        <main id="menu-hero-section">
+            <div class="menu-hero-content" data-aos="fade-right">
+                <span class="section-highlight">Our Menu</span>
+                <h1 class="menu-hero-heading">Explore Our Dishes</h1>
+                <p class="menu-hero-line">
+                    Discover our nasi kandar menu, prepared with warm rice, rich curry, flavourful side dishes, and refreshing drinks.
+                </p>
+            </div>
+
+            <div class="menu-hero-card" data-aos="zoom-in">
+                <i class="fa-solid fa-utensils"></i>
+                <h2>20+ Dishes</h2>
+                <p>Authentic nasi kandar meals with affordable prices and comforting homemade flavours.</p>
+            </div>
+        </main>
+    </header>
+
+    <!-- menu section -->
+    <section id="menu-section">
+
+        <div class="menu-title">
+            <h1 class="section-title">Munch Menu</h1>
+            <p class="section-info">
+                Browse our available dishes by category. This page is for menu viewing only.
+            </p>
+        </div>
+
+        <!-- category buttons -->
+        <div class="menu-category-container">
+            <a href="#nasi" class="menu-category-btn">Nasi</a>
+            <a href="#main-dishes" class="menu-category-btn">Main Dishes</a>
+            <a href="#vegetables" class="menu-category-btn">Vegetables</a>
+            <a href="#side-dishes" class="menu-category-btn">Side Dishes</a>
+            <a href="#drinks" class="menu-category-btn">Drinks</a>
+            <a href="#combo-sets" class="menu-category-btn">Combo Sets</a>
+        </div>
+
+        <!-- nasi category -->
+        <div class="menu-category-block" id="nasi">
+            <h2 class="menu-category-title">Nasi</h2>
+
+            <div class="menu-grid">
+
+                <div class="menu-card" data-aos="fade-up">
+                    <img src="img/restaurant-1.png" class="menu-img" alt="Nasi Putih">
+                    <div class="menu-card-body">
+                        <div class="menu-card-top">
+                            <h3>Nasi Putih</h3>
+                            <span>RM2.00</span>
+                        </div>
+                        <p>Soft and warm white rice, suitable to pair with any curry, chicken, beef, or vegetable dish.</p>
+                    </div>
+                </div>
+
+                <div class="menu-card" data-aos="fade-up" data-aos-delay="100">
+                    <img src="img/restaurant-2.png" class="menu-img" alt="Nasi Minyak">
+                    <div class="menu-card-body">
+                        <div class="menu-card-top">
+                            <h3>Nasi Minyak</h3>
+                            <span>RM3.00</span>
+                        </div>
+                        <p>Fragrant rice cooked with spices and a light buttery taste, perfect for rich nasi kandar dishes.</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- main dishes category -->
+        <div class="menu-category-block" id="main-dishes">
+            <h2 class="menu-category-title">Main Dishes</h2>
+
+            <div class="menu-grid">
+
+                <div class="menu-card" data-aos="fade-up">
+                    <img src="img/restaurant-3.png" class="menu-img" alt="Ayam Goreng">
+                    <div class="menu-card-body">
+                        <div class="menu-card-top">
+                            <h3>Ayam Goreng</h3>
+                            <span>RM5.00</span>
+                        </div>
+                        <p>Crispy fried chicken with a golden outer layer and juicy meat, best served with kuah campur.</p>
+                    </div>
+                </div>
+
+                <div class="menu-card" data-aos="fade-up" data-aos-delay="100">
+                    <img src="img/restaurant-4.png" class="menu-img" alt="Ayam Madu">
+                    <div class="menu-card-body">
+                        <div class="menu-card-top">
+                            <h3>Ayam Madu</h3>
+                            <span>RM6.00</span>
+                        </div>
+                        <p>Sweet and savoury honey chicken coated with rich sauce for a flavourful nasi kandar meal.</p>
+                    </div>
+                </div>
+
+                <div class="menu-card" data-aos="fade-up" data-aos-delay="200">
+                    <img src="img/restaurant-5.png" class="menu-img" alt="Daging Rendang">
+                    <div class="menu-card-body">
+                        <div class="menu-card-top">
+                            <h3>Daging Rendang</h3>
+                            <span>RM8.00</span>
+                        </div>
+                        <p>Tender beef cooked slowly with coconut milk, spices, and herbs until rich and aromatic.</p>
+                    </div>
+                </div>
+
+                <div class="menu-card" data-aos="fade-up" data-aos-delay="300">
+                    <img src="img/restaurant-6.png" class="menu-img" alt="Kari Ikan">
+                    <div class="menu-card-body">
+                        <div class="menu-card-top">
+                            <h3>Kari Ikan</h3>
+                            <span>RM7.00</span>
+                        </div>
+                        <p>Fish cooked in thick curry gravy with bold spices, giving a classic nasi kandar taste.</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- vegetables category -->
+        <div class="menu-category-block" id="vegetables">
+            <h2 class="menu-category-title">Vegetables</h2>
+
+            <div class="menu-grid">
+
+                <div class="menu-card" data-aos="fade-up">
+                    <img src="img/restaurant-1.png" class="menu-img" alt="Kobis Goreng">
+                    <div class="menu-card-body">
+                        <div class="menu-card-top">
+                            <h3>Kobis Goreng</h3>
+                            <span>RM2.00</span>
+                        </div>
+                        <p>Lightly fried cabbage with simple seasoning, adding crunch and balance to your meal.</p>
+                    </div>
+                </div>
+
+                <div class="menu-card" data-aos="fade-up" data-aos-delay="100">
+                    <img src="img/restaurant-2.png" class="menu-img" alt="Sayur Campur">
+                    <div class="menu-card-body">
+                        <div class="menu-card-top">
+                            <h3>Sayur Campur</h3>
+                            <span>RM3.00</span>
+                        </div>
+                        <p>A mixed vegetable dish cooked with light seasoning, suitable for a simple and balanced plate.</p>
+                    </div>
+                </div>
+
+                <div class="menu-card" data-aos="fade-up" data-aos-delay="200">
+                    <img src="img/restaurant-3.png" class="menu-img" alt="Bendi Goreng">
+                    <div class="menu-card-body">
+                        <div class="menu-card-top">
+                            <h3>Bendi Goreng</h3>
+                            <span>RM4.00</span>
+                        </div>
+                        <p>Fresh okra cooked with spices, giving a soft texture and a slightly savoury flavour.</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- side dishes category -->
+        <div class="menu-category-block" id="side-dishes">
+            <h2 class="menu-category-title">Side Dishes</h2>
+
+            <div class="menu-grid">
+
+                <div class="menu-card" data-aos="fade-up">
+                    <img src="img/restaurant-4.png" class="menu-img" alt="Papadom">
+                    <div class="menu-card-body">
+                        <div class="menu-card-top">
+                            <h3>Papadom</h3>
+                            <span>RM1.00</span>
+                        </div>
+                        <p>Crispy papadom with a light salty taste, perfect as a crunchy side for nasi kandar.</p>
+                    </div>
+                </div>
+
+                <div class="menu-card" data-aos="fade-up" data-aos-delay="100">
+                    <img src="img/restaurant-5.png" class="menu-img" alt="Telur Masin">
+                    <div class="menu-card-body">
+                        <div class="menu-card-top">
+                            <h3>Telur Masin</h3>
+                            <span>RM2.00</span>
+                        </div>
+                        <p>Salted egg with a rich and savoury taste, commonly paired with rice and curry dishes.</p>
+                    </div>
+                </div>
+
+                <div class="menu-card" data-aos="fade-up" data-aos-delay="200">
+                    <img src="img/restaurant-6.png" class="menu-img" alt="Kuah Campur">
+                    <div class="menu-card-body">
+                        <div class="menu-card-top">
+                            <h3>Kuah Campur</h3>
+                            <span>RM1.50</span>
+                        </div>
+                        <p>A signature mix of curry gravies that gives nasi kandar its bold and satisfying flavour.</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- drinks category -->
+        <div class="menu-category-block" id="drinks">
+            <h2 class="menu-category-title">Drinks</h2>
+
+            <div class="menu-grid">
+
+                <div class="menu-card" data-aos="fade-up">
+                    <img src="img/restaurant-1.png" class="menu-img" alt="Teh Tarik">
+                    <div class="menu-card-body">
+                        <div class="menu-card-top">
+                            <h3>Teh Tarik</h3>
+                            <span>RM2.50</span>
+                        </div>
+                        <p>A classic Malaysian milk tea with a smooth, creamy, and comforting taste.</p>
+                    </div>
+                </div>
+
+                <div class="menu-card" data-aos="fade-up" data-aos-delay="100">
+                    <img src="img/restaurant-2.png" class="menu-img" alt="Sirap Ais">
+                    <div class="menu-card-body">
+                        <div class="menu-card-top">
+                            <h3>Sirap Ais</h3>
+                            <span>RM2.00</span>
+                        </div>
+                        <p>A refreshing rose syrup drink served cold, suitable for balancing spicy dishes.</p>
+                    </div>
+                </div>
+
+                <div class="menu-card" data-aos="fade-up" data-aos-delay="200">
+                    <img src="img/restaurant-3.png" class="menu-img" alt="Milo Ais">
+                    <div class="menu-card-body">
+                        <div class="menu-card-top">
+                            <h3>Milo Ais</h3>
+                            <span>RM3.00</span>
+                        </div>
+                        <p>A cold chocolate malt drink with a sweet and creamy flavour, loved by many Malaysians.</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- combo sets category -->
+        <div class="menu-category-block" id="combo-sets">
+            <h2 class="menu-category-title">Combo Sets</h2>
+
+            <div class="menu-grid">
+
+                <div class="menu-card" data-aos="fade-up">
+                    <img src="img/restaurant-4.png" class="menu-img" alt="Combo Set 1">
+                    <div class="menu-card-body">
+                        <div class="menu-card-top">
+                            <h3>Combo Set 1</h3>
+                            <span>RM6.00</span>
+                        </div>
+                        <p>Nasi putih with ayam goreng and papadom, suitable for a simple and filling meal.</p>
+                    </div>
+                </div>
+
+                <div class="menu-card" data-aos="fade-up" data-aos-delay="100">
+                    <img src="img/restaurant-5.png" class="menu-img" alt="Combo Set 2">
+                    <div class="menu-card-body">
+                        <div class="menu-card-top">
+                            <h3>Combo Set 2</h3>
+                            <span>RM10.00</span>
+                        </div>
+                        <p>Nasi minyak with ayam madu, vegetables, and sirap ais for a complete nasi kandar set.</p>
+                    </div>
+                </div>
+
+                <div class="menu-card" data-aos="fade-up" data-aos-delay="200">
+                    <img src="img/restaurant-6.png" class="menu-img" alt="Family Set">
+                    <div class="menu-card-body">
+                        <div class="menu-card-top">
+                            <h3>Family Set</h3>
+                            <span>RM15.00</span>
+                        </div>
+                        <p>A sharing set with rice, chicken, vegetables, papadom, and drinks for small groups.</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </section>
+
+    <!-- footer -->
+    <footer id="footer">
+        <div class="company-info">
+            <img src="img/footer-logo.png" class="logo" alt="Munch Logo">
+
+            <div class="social-links">
+                <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                <a href="#"><i class="fa-brands fa-facebook"></i></a>
+                <a href="#"><i class="fa-brands fa-twitter"></i></a>
+            </div>
+
+            <div class="download-btn-group">
+                <a href="#" class="download-btn"><img src="img/play-store.png" alt="Play Store"></a>
+                <a href="#" class="download-btn"><img src="img/app-store.png" alt="App Store"></a>
+            </div>
+        </div>
+
+        <div class="useful-links footer-links-container">
+            <h5 class="footer-links-title">useful links</h5>
+            <a href="profile.html" class="footer-links protected-link" data-protected="true" data-target="profile.html">profile</a>
+            <a href="menu.php" class="footer-links">menu</a>
+            <a class="footer-links protected-link" data-protected="true" data-target="customerOrder.html" href="customerOrder.html">your orders</a>
+            <a href="Reservation.html" class="footer-links">reservation</a>
+        </div>
+
+        <div class="information footer-links-container">
+            <h5 class="footer-links-title">information</h5>
+            <a href="#about-section" class="footer-links">about us</a>
+            <a href="#" class="footer-links">privacy policy</a>
+            <a href="#" class="footer-links">terms and conditions</a>
+        </div>
+
+        <div class="contact footer-links-container">
+            <h5 class="footer-links-title">contact us</h5>
+            <p class="footer-text">Our Munch restaurant is located on Jalan 321, Shah Alam</p>
+            <p class="footer-text">Phone - 03-24552776</p>
+            <p class="footer-text">Email - munchService@email.com</p>
+        </div>
+
+        <div class="paymet-partners">
+            <img src="img/visa.png" alt="Visa">
+            <img src="img/master-card.png" alt="Master Card">
+            <img src="img/paypal.png" alt="PayPal">
+            <img src="img/apple-pay.png" alt="Apple Pay">
+        </div>
+
+        <p class="copyright">© 2026 Munch Food Ordering System. All Rights Reserved.</p>
+    </footer>
+
+    <!-- scripts -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="app.js"></script>
+    <script src="auth.js"></script>
+    <script src="nav-order-fix.js"></script>
+
+    <script src="search.js"></script>
+    <script src="munch-footer-popups.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Google Fonts "Lato" -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@100;300;400;700;900&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome Link -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+
+    <!-- AOS -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <!-- local CSS files -->
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="auth.css">
+    <link rel="stylesheet" href="owner-style.css">
+    <title>Munch | Owner Login</title>
+    <link rel="stylesheet" href="munch-clean-ui.css">
+</head>
+
+<body>
+    <header>
+        <nav class="navbar">
+            <a href="index.html"><img src="img/footer-logo.png" class="logo" alt="Munch Logo"></a>
+            <ul class="links-container">
+                <li class="link-items"><a href="index.html" class="links">Home</a></li>
+                <li class="link-items"><a href="staff-login.html" class="links">Staff</a></li>
+                <li class="link-items"><a href="owner-login.html" class="links">Owner</a></li>
+            </ul>
+            <div class="nav-extras"><div class="search"><input type="text" class="search-box" placeholder="Search Munch....."><button class="search-btn" type="button"><i class="fa-solid fa-magnifying-glass"></i></button></div><div class="nav-toggler"><span></span><span></span><span></span></div></div>
+        </nav>
+    </header>
+
+    <main id="auth-main-section" class="staff-auth-page owner-auth-page">
+        <div class="auth-content" data-aos="fade-right">
+            <span class="section-highlight">Owner Access</span>
+            <h1 class="auth-heading">Welcome back, Munch owner</h1>
+            <p class="auth-line">Login to access sales reports, menu management, employee records, reservation tracker, catering tracker, and business analytics.</p>
+            <div class="auth-benefit-container">
+                <div class="auth-benefit-card"><i class="fa-solid fa-chart-pie"></i><h3>Full Reports</h3><p>View daily, weekly, monthly, and yearly business performance.</p></div>
+                <div class="auth-benefit-card"><i class="fa-solid fa-user-shield"></i><h3>Owner Authority</h3><p>Control menu records, employee data, and booking performance.</p></div>
+            </div>
+        </div>
+        <section class="auth-card" data-aos="zoom-in">
+            <div class="auth-icon staff-icon owner-login-icon"><i class="fa-solid fa-crown"></i></div>
+            <h2>Owner Login</h2>
+            <p class="auth-card-line">Enter owner account details to continue.</p>
+            <form class="auth-form" action="OwnerLogin.php" method="POST">
+                <input type="hidden" name="redirect" value="">
+                <div class="form-group"><label for="ownerLoginId">Owner Staff ID</label><div class="input-wrapper"><i class="fa-solid fa-id-badge"></i><input type="text" id="ownerLoginId" name="STAFFID" placeholder="Example: S001" required></div></div>
+                <div class="form-group"><label for="ownerLoginPassword">Password</label><div class="input-wrapper"><i class="fa-solid fa-lock"></i><input type="password" id="ownerLoginPassword" name="STAFFPASS" placeholder="Enter staff password" required></div></div>
+                <div class="form-extra-row"><label class="check-row"><input type="checkbox"><span>Remember me</span></label></div>
+                <button type="submit" class="btn auth-submit-btn">Login as Owner</button>
+            </form>
+        </section>
+    </main>
+    <footer id="footer">
+        <div class="company-info">
+            <img src="img/footer-logo.png" class="logo" alt="Munch Logo">
+
+            <div class="social-links">
+                <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                <a href="#"><i class="fa-brands fa-facebook"></i></a>
+                <a href="#"><i class="fa-brands fa-twitter"></i></a>
+            </div>
+        </div>
+
+        <div class="useful-links footer-links-container">
+            <h5 class="footer-links-title">owner links</h5>
+            <a href="owner-dashboard.html" class="footer-links protected-link" data-protected="true" data-role-required="owner" data-target="owner-dashboard.html">dashboard</a>
+            <a href="owner-menu-management.html" class="footer-links protected-link" data-protected="true" data-role-required="owner" data-target="owner-menu-management.html">menu control</a>
+            <a href="owner-reports.html" class="footer-links protected-link" data-protected="true" data-role-required="owner" data-target="owner-reports.html">reports</a>
+            <a href="#" class="footer-links" data-logout-role="owner">logout</a>
+        </div>
+
+        <div class="information footer-links-container">
+            <h5 class="footer-links-title">system</h5>
+            <a href="staff-dashboard.html" class="footer-links protected-link" data-protected="true" data-role-required="staff" data-target="staff-dashboard.html">staff dashboard</a>
+            <a href="index.html" class="footer-links">customer website</a>
+            <a href="owner-booking-tracker.html" class="footer-links protected-link" data-protected="true" data-role-required="owner" data-target="owner-booking-tracker.html">booking tracker</a>
+        </div>
+
+        <div class="contact footer-links-container">
+            <h5 class="footer-links-title">contact us</h5>
+            <p class="footer-text">Our Munch restaurant is located on Jalan 321, Shah Alam</p>
+            <p class="footer-text">Phone - 03-24552776</p>
+            <p class="footer-text">Email - munchService@email.com</p>
+        </div>
+
+        <p class="copyright">© 2026 Munch Food Ordering System. All Rights Reserved.</p>
+    </footer>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="munch-user-popups.js"></script>
+    <script src="owner-auth.js"></script>
+    <script src="munch-footer-popups.js"></script>
+</body>
+
+</html>
